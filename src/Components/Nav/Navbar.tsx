@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom'
+import { useForm } from '../../Hooks/useForm';
+
+
+
+
 
 export const Navbar = () => {
+
+    const [ values, handleInputChange ] = useForm({ title: '' });
+
+    const { title } = values;
+
     return (
         
         <ul className="myNav">
@@ -12,7 +22,17 @@ export const Navbar = () => {
             </li>
 
             <li className="myNav-item">
-                <a className="nav-link disabled" href="#" aria-disabled="true">Disabled</a>
+                <i className="fas fa-search nav-link" style={{ fontSize: 11}}>
+                    <input 
+                        className='nav-search ms-3'
+                        type='text'
+                        placeholder='Buscar...'
+                        name='title'
+                        value={title}
+                        onChange={ handleInputChange }
+                        autoComplete='off'
+                    />
+                </i>
             </li>
         </ul>
   

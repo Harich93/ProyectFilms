@@ -1,6 +1,7 @@
 import { getCinemaFilms, getPopularFilms, getUpcomingMovies } from '../Helpers/customsFetch';
 import { Action } from '../Types/interface/interfaces';
 import { Movie } from '../Types/Models/models';
+
 import { types } from '../Types/types';
 
 export const startGetCinemaMovies = () => {
@@ -36,10 +37,7 @@ export const startGetUpcomingMovies = () => {
     }
 };
 
-export const setSelectedMovie = ( payload:Movie ):Action => ({
-    type: types.moviesSetSelectedMovie,
-    payload: payload
-});
+
 
 const setCinemaMovies = ( payload:Movie[] ):Action => ({
     type: types.moviesSetCinemaMovies,

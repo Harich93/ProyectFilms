@@ -17,6 +17,6 @@ body {
 
 }
 
-.animate__animated.animate__fadeInDown.animate__fadeInRight {
-    --animate-duration: 9s;
+.animate__animated,.animate__fadeInDown,.animate__fadeInRight {
+    --animate-duration: 3s;
   }

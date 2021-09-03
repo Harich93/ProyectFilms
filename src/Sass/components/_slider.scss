@@ -52,7 +52,7 @@
         position: absolute;
         left: 0;
         z-index: 1;
-
+ 
         .slider-item { 
             background-color: $dark;
             background-repeat: no-repeat;
@@ -66,6 +66,11 @@
             box-shadow: 2px 2px 5px $dark-light;
             
             transition: width .6s ease-out;
+
+            &.cast {
+                height: 23vh;
+                width: 15vh;
+            }
 
             .slider-item-title {
 
@@ -98,8 +103,25 @@
                 flex-direction: row;
                 transform: scale(101%);
                 width: 65vh;
+                
+                &.cast {
+                    width: 50vh;
 
+                    .slider-item-description {
+                        margin-left: 20px;
+                        margin-top: 20px;
+                    }
 
+                    ul {
+                        margin-top: 20px;
+                        font-size: 12px;
+                    }
+
+                    span {
+                        color: lighten($color: $dark-light, $amount: 20);
+                        margin-right: 10px;
+                    }
+                }
                 
                 .slider-item-description {
                     display:inline-block;

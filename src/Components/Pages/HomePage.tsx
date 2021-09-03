@@ -5,7 +5,7 @@ import { RootState } from '../../Store/store';
 import {  useDispatch, useSelector } from 'react-redux';
 
 import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../Actions/moviesActions';
-import { SliderMovie } from '../Sliders/SliderMovie';
+import {  Slider } from '../Sliders/Slider';
 import { MoviesRState } from '../../Types/interface/interfaces';
 
 
@@ -23,17 +23,20 @@ export const HomePage = () => {
     return (
         <>
 
-          <SliderMovie 
+          <Slider
+            component='movies'
             title='En cines'
             items={ movies.CinemaFilms }
           />
 
-          <SliderMovie 
+          <Slider
+            component='movies'
             title='Populares'
             items={ movies.PopularFilms }
           />
 
-          <SliderMovie 
+          <Slider
+            component='movies'
             title='Próximamente'
             items={ movies.UpcomingFilms }
           />

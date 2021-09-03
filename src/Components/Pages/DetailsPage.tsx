@@ -1,20 +1,30 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { startGetCreditsMovieActive } from "../../Actions/activeActions";
 import { getPoster } from "../../Helpers/getPoster";
 import { RootState } from '../../Store/store';
-import { MoviesRState } from "../../Types/interface/interfaces";
+import { ActiveRState } from "../../Types/interface/interfaces";
+import { Slider } from "../Sliders/Slider";
 
 export const DetailsPage = () => {
     
-    const { SelectedFilm: movie } = useSelector<RootState>(state => state.moviesR) as MoviesRState;
+    const dispatch = useDispatch();
 
-    console.log( movie?.id )
+    const { 
+        
+        ActiveCast: cast, 
+        ActiveImages: images, 
+        ActiveMovie: movie 
+
+    } = useSelector<RootState>(state => state.activeR) as ActiveRState;
+
+   console.log( movie?.id)
 
     useEffect(() => {
-
+        movie !== undefined &&
+            dispatch( startGetCreditsMovieActive( movie?.id ) )
     }, [])
 
-    // a.style.backgroundImage =
 
     return (
         <>
@@ -28,17 +38,15 @@ export const DetailsPage = () => {
                 <div className='details-container row'>
 
                     <div 
-                        className='details-poster col-6'
+                        className='details-poster col-8'
                         style={{ backgroundImage: `url(${getPoster( movie!.poster_path )})`}}
                     ></div>
 
-                    <div className='details-description col-6'>
+                    <div className='details-description col-4'>
                         <div className='details-text'>
-                            { movie?.original_language }
-                            { movie?.overview }
-                        </div>
-
-                        <div className='details-actors'>
+                            <h1 className='slider-title ms-0'>{movie?.original_title}</h1>
+                            <hr />
+                            {/* { movie?.original_language } */}
                             { movie?.overview }
                         </div>
                     </div>
@@ -47,7 +55,16 @@ export const DetailsPage = () => {
                 </div>
                 
             </div>
-        
+
+            <div className='details-actors'>
+                { 
+                    <Slider
+                        component='cast'
+                        title='Actores'
+                        items={ cast }
+                    />
+                }
+            </div>
         </>
     )
 }

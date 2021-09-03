@@ -10,9 +10,10 @@ export interface MoviesRState {
     CinemaFilms   : Movie[]
     PopularFilms  : Movie[]
     UpcomingFilms : Movie[]
-    SelectedFilm?  : Movie
 };
 
-export interface CastRState {
-    CastMovieActive : Cast[]
+export interface ActiveRState {
+    ActiveMovie? : Movie
+    ActiveCast   : []
+    ActiveImages : []
 }

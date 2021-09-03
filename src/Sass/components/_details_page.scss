@@ -18,12 +18,13 @@
     color: white;
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: 90vh;
     padding: 50px;
 
     .details-container {
-        justify-content: center;
-        padding: 10px;
+        justify-content: space-evenly;
+        padding-left: 50px;
+        padding-right: 50px;
         // background-color: violet;
         
         .details-poster, .details-description{
@@ -32,7 +33,7 @@
 
         
         .details-poster {
-            // background-color: white;
+            background-color: white;
             width: 25vmax;
             height: 37vmax;
             border-radius: 20px;
@@ -45,13 +46,16 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
+            max-height: 50vh;
+            overflow: hidden;
             
             .details-text {
                 // background-color: turquoise;
             }
             
             .details-actors {
-                // background-color: rgb(56, 11, 82);
+                position: absolute;
+                background-color: rgb(56, 11, 82);
             }
         }
     }

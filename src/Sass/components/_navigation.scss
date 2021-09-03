@@ -5,27 +5,42 @@
     margin-right: 10px;
     list-style: none;
 
-}
+    .myNav-item {
+        padding: 10px;
+        color: white;
+    
+        .text {
+            position: static;
+            left: 0;
+        }
 
-.myNav-item {
-    padding: 10px;
-    color: white;
+        .nav-search {
+        
+            border-radius: 10px;
+            border: solid 0.1px lighten($color: $dark-light, $amount: 10);
+            background-color: $dark-light;
+            color: white;
+            font-size: 13px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-    .text {
-        position: static;
-        left: 0;
+            &:focus {
+                outline: none;
+                border: solid 0.1px $blue-light;
+            }
+        }
     }
-}
+    
+    .nav-link {
+        color: white;
+        font-size: 15px;
+    
+        &:hover {
+            color: $blue-light;
+        }
+    
+        &:active {
+            color: $blue;
+        }
 
-.nav-link {
-    color: white;
-    font-size: 15px;
-
-    &:hover {
-        color: $green;
-    }
-
-    &:active {
-        color: $blue;
     }
 }

@@ -7,8 +7,8 @@ export const types = {
     moviesAddPopularMovies  : '[movies] Add popular movies',
     moviesSetUpcomingMovies : '[movies] Set upcoming movies',
     moviesAddUpcomingMovies : '[movies] Add upcoming movies',
-    moviesSetSelectedMovie  : '[movies] Add selected movie',
 
-    castSetCastMovieActive  : '[cast] Set cast movie active',
+    activeSetCast       : '[active] Set cast active',
+    activeSetMovie      : '[active] Set movie active'
 }
 

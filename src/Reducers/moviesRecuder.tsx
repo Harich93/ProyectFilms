@@ -27,12 +27,6 @@ export const moviesReducer = ( state:MoviesRState = initialState, action:Action 
                 ...state,
                 UpcomingFilms: action.payload
             }
-
-        case types.moviesSetSelectedMovie:
-            return {
-                ...state,
-                SelectedFilm: action.payload
-            }
     
         default: return state;
     }
