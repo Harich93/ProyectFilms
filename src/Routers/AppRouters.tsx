@@ -6,6 +6,7 @@ import {
     Redirect
   } from "react-router-dom";
 import { Navbar } from "../Components/Nav/Navbar";
+import { DetailsPage } from "../Components/Pages/DetailsPage";
 import { HomePage } from "../Components/Pages/HomePage";
 import { LoginPage } from "../Components/Pages/LoginPage";
 
@@ -15,10 +16,11 @@ export const AppRouters = () => {
         <Router>
             <Navbar />
             <Switch>
-                <Route exact path='/home' component={ HomePage } />
+                <Route exact path='/films' component={ HomePage } />
+                <Route exact path='/details' component={ DetailsPage } />
                 <Route exact path='/auth/login' component={ LoginPage } />
 
-                <Redirect to='/home' />
+                <Redirect to='/films' />
             </Switch>
         </Router>
     )

@@ -1,14 +1,10 @@
-import { Action, types } from '../Types/types';
-import { Movie } from '../Models/models';
-
-type MoviesRState = {
-    CinemaFilms : Movie[]
-    PopularFilms: Movie[]
-}
+import { Action, MoviesRState } from '../Types/interface/interfaces';
+import {types } from '../Types/types';
 
 const initialState:MoviesRState = {
-    CinemaFilms  : [],
-    PopularFilms : [],
+    CinemaFilms   : [],
+    PopularFilms  : [],
+    UpcomingFilms : [],
 }
 
 export const moviesReducer = ( state:MoviesRState = initialState, action:Action ) => {
@@ -25,6 +21,18 @@ export const moviesReducer = ( state:MoviesRState = initialState, action:Action 
                 ...state,
                 PopularFilms: action.payload
             };
+
+        case types.moviesSetUpcomingMovies:
+            return {
+                ...state,
+                UpcomingFilms: action.payload
+            }
+
+        case types.moviesSetSelectedMovie:
+            return {
+                ...state,
+                SelectedFilm: action.payload
+            }
     
         default: return state;
     }

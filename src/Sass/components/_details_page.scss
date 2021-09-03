@@ -1,0 +1,60 @@
+
+.details-title {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    left: 15px;
+    position: fixed;
+    top: 10px;
+    z-index: 100;
+
+    span {
+        margin: 20px;
+    }
+}
+
+.details-row {
+    // background-color: rgb(30, 255, 0);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    padding: 50px;
+
+    .details-container {
+        justify-content: center;
+        padding: 10px;
+        // background-color: violet;
+        
+        .details-poster, .details-description{
+            margin-left: 20px;
+        }
+
+        
+        .details-poster {
+            // background-color: white;
+            width: 25vmax;
+            height: 37vmax;
+            border-radius: 20px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .details-description {
+            // background-color: tomato;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            
+            .details-text {
+                // background-color: turquoise;
+            }
+            
+            .details-actors {
+                // background-color: rgb(56, 11, 82);
+            }
+        }
+    }
+    
+
+}

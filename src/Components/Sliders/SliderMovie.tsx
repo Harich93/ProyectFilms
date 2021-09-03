@@ -1,9 +1,11 @@
-import { Movie } from '../../Models/models';
-import { ItemSliderMovie } from './ItemSliderMovie';
-import { getPoster } from '../../Helpers/getPoster';
-import { useEffect } from 'react';
 
-interface Slider {
+import { ItemSliderMovie } from './ItemSliderMovie';
+import { useEffect } from 'react';
+import { scrollSlider } from '../../Helpers/scrollSlider';
+import { Movie } from '../../Types/Models/models';
+
+
+export interface Slider {
     title        : string,
     itemCounter? : number,
     items?       : Movie[] 
@@ -11,38 +13,26 @@ interface Slider {
 
 
 export const SliderMovie = ( { title, itemCounter, items }:Slider ) => {
-
-    const id = Math.random()*99999;
+    
     const titleId = title.replace(' ', '');
-
+    
     useEffect(() => {
-
-        const a = document.querySelector(`#slider-${titleId}`) as HTMLElement
-
-        a.addEventListener('wheel', (e) => {
-            e.deltaY > 0
-                ? document.querySelector(`#slider-${titleId}`)!.scrollLeft -= 190
-                : document.querySelector(`#slider-${titleId}`)!.scrollLeft += 190;
-        });
-
+        scrollSlider( titleId );
     }, [])
 
     return (
         <div>
             <h2 className='slider-title'>{title}</h2>
-            <div id={`slider-${titleId}`} className='slider-frame'> 
-                      
-                {/* <div className="btn prev"></div>
-                <div className="btn next" onClick={ () => scrollNext() }></div> */}
 
-                    <div className='slider-container'>
-                        {
-                            items?.map( film => (
-                                
-                                <ItemSliderMovie poster={ getPoster(film.poster_path) }/>
-                            ))
-                        }
-                    </div>
+            <div id={`slider-${titleId}`} className='slider-frame'> 
+
+                <div className='slider-container'>
+                    {
+                        items?.map( film => ( 
+                            <ItemSliderMovie key={film.id} movie={ film }/> 
+                        ))
+                    }
+                </div>
             </div>
         </div>
     )

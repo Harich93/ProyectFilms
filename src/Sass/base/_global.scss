@@ -1,5 +1,22 @@
 body {
-    background-color: $dark;
+    background: linear-gradient( $dark-light, $dark);
+    background-repeat: no-repeat;
+    background-clip: content-box;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
+
+    
+    &.stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
 }
+
+.animate__animated.animate__fadeInDown.animate__fadeInRight {
+    --animate-duration: 9s;
+  }

@@ -1,11 +1,44 @@
-interface ItemSlider {
-    poster? : string
-}
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-export const ItemSliderMovie = ( { poster }:ItemSlider) => {
+import { Movie } from '../../Types/Models/models';
+import { getPoster } from '../../Helpers/getPoster';
+import { setSelectedMovie } from '../../Actions/moviesActions';
+
+
+
+export interface ItemSlider {
+    movie : Movie
+};
+
+export const ItemSliderMovie = ( { movie }:ItemSlider) => {
+
+    const dispatch = useDispatch();
+    const poster = getPoster( movie.poster_path );
+
+    const handleOnClick = () => {
+        dispatch( setSelectedMovie( movie ) );
+    } 
+
     return (
-        <div className='slider-item' style={{ backgroundImage: `url(${poster})` }}>
-            
-        </div>
+        <Link to='/details'>
+            <div 
+                className='slider-item' 
+                style={{ backgroundImage: `url(${poster})` }}
+                onClick={ handleOnClick }
+            >
+                <div className='col-4' >
+
+                </div>
+                <div className='slider-item-description col-8 animate__animated animate__fadeInRight'>
+                    <div className='slider-item-title'>
+                        <h3>{ movie.title }</h3>
+                        <i className="far fa-star"> {movie.vote_average}</i>
+                    </div>
+                    <span>{ movie.overview }</span>
+                </div>
+                
+            </div>
+        </Link>
     )
 }

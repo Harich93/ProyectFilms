@@ -4,21 +4,28 @@
     justify-content: end;
     margin-right: 10px;
     list-style: none;
+
 }
 
-// .myNav-item {
-//     padding: 10px;
-//     color: white;
-// }
+.myNav-item {
+    padding: 10px;
+    color: white;
 
-// .nav-link {
-//     color: $blue-light;
+    .text {
+        position: static;
+        left: 0;
+    }
+}
 
-//     &:hover {
-//         color: $green;
-//     }
+.nav-link {
+    color: white;
+    font-size: 15px;
 
-//     &:active {
-//         color: $blue;
-//     }
-// }
+    &:hover {
+        color: $green;
+    }
+
+    &:active {
+        color: $blue;
+    }
+}

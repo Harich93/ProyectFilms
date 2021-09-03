@@ -1,6 +1,7 @@
-import { getCinemaFilms, getPopularFilms } from "../Helpers/customsFetch"
-import { Movie } from '../Models/models';
-import { Action, types } from '../Types/types';
+import { getCinemaFilms, getPopularFilms, getUpcomingMovies } from '../Helpers/customsFetch';
+import { Action } from '../Types/interface/interfaces';
+import { Movie } from '../Types/Models/models';
+import { types } from '../Types/types';
 
 export const startGetCinemaMovies = () => {
     return async( dispatch:any ) => {
@@ -22,6 +23,24 @@ export const startGetPopularMovies = () => {
     }
 };
 
+export const startGetUpcomingMovies = () => {
+    return async( dispatch:any ) => {
+        try {
+            
+            const resp = await getUpcomingMovies();
+            dispatch( setUpcomingMovies( resp ) );
+            
+        } catch (error) {
+            console.log( error )
+        }
+    }
+};
+
+export const setSelectedMovie = ( payload:Movie ):Action => ({
+    type: types.moviesSetSelectedMovie,
+    payload: payload
+});
+
 const setCinemaMovies = ( payload:Movie[] ):Action => ({
     type: types.moviesSetCinemaMovies,
     payload: payload
@@ -29,5 +48,10 @@ const setCinemaMovies = ( payload:Movie[] ):Action => ({
 
 const setPopularMovies = ( payload:Movie[] ):Action => ({
     type: types.moviesSetPopularMovies,
+    payload: payload
+});
+
+const setUpcomingMovies = ( payload:Movie[] ):Action => ({
+    type: types.moviesSetUpcomingMovies,
     payload: payload
 });

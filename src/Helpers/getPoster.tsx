@@ -1,4 +1,5 @@
-import { Movie } from "../Models/models";
+import { Movie } from "../Types/Models/models";
+
 
 export const getPoster = ( posterPath:string ):string => {
     if ( posterPath !=null ) return `https://image.tmdb.org/t/p/w500${ posterPath }`;

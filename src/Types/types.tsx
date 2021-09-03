@@ -1,18 +1,14 @@
-import { Movie } from "../Models/models"
+
 
 export const types = {
-    moviesSetCinemaMovies  : '[movies] Set cinema movies',
-    moviesAddCinemaMovies  : '[movies] Add cinemaMovies',
-    moviesSetPopularMovies : '[movies] Set popular Movies',
-    moviesAddPopularMovies : '[movies] Add popular Movies',
+    moviesSetCinemaMovies   : '[movies] Set cinema movies',
+    moviesAddCinemaMovies   : '[movies] Add cinema movies',
+    moviesSetPopularMovies  : '[movies] Set popular movies',
+    moviesAddPopularMovies  : '[movies] Add popular movies',
+    moviesSetUpcomingMovies : '[movies] Set upcoming movies',
+    moviesAddUpcomingMovies : '[movies] Add upcoming movies',
+    moviesSetSelectedMovie  : '[movies] Add selected movie',
+
+    castSetCastMovieActive  : '[cast] Set cast movie active',
 }
 
-export type Action = {
-    type    : string,
-    payload : any,
-}
-
-export type MoviesRState = {
-    CinemaFilms : Movie[]
-    PopularFilms: Movie[]
-}
