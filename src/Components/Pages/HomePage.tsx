@@ -6,41 +6,72 @@ import {  useDispatch, useSelector } from 'react-redux';
 
 import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../Actions/moviesActions';
 import {  Slider } from '../Sliders/Slider';
-import { MoviesRState } from '../../Types/interface/interfaces';
+import { iLoadRState, MoviesRState, iSearchRState } from '../../Types/interface/interfaces';
+import { SearchResults } from '../Search/SearchResults';
 
 
 export const HomePage = () => {
+
   const dispatch = useDispatch();
   const movies = useSelector<RootState>( state=> state.moviesR ) as MoviesRState;
+  const { Loading } = useSelector<RootState>( state => state.loadR ) as iLoadRState;
+  const { Results } = useSelector<RootState>( state => state.searchR ) as iSearchRState;
+
+
+  useEffect(() => {
+    if( movies.CinemaFilms.length  === 0 ) {
+      dispatch( startGetCinemaMovies( true ) );
+      dispatch( startGetPopularMovies( true) );
+      dispatch( startGetUpcomingMovies( true ) );
+    }
+  }, []);
 
   
-  useEffect(() => {
-    dispatch( startGetCinemaMovies() );
-    dispatch( startGetPopularMovies() );
-    dispatch( startGetUpcomingMovies() );
-  }, [])
+  const snipper = () => {
+    return (
+      <div className='spinner-frame'>
+        <div className="spinner"></div>
+      </div> 
+    )
+  }
+
+  const sliderMovies = () => {
+    return (
+      <>
+            <Slider
+              component='movies'
+              title='En cines'
+              items={ movies.CinemaFilms }
+              functionDispatch='cinema'
+
+            />
+  
+            <Slider
+              component='movies'
+              title='Populares'
+              items={ movies.PopularFilms }
+              functionDispatch='popular'
+            />
+  
+            <Slider
+              component='movies'
+              title='Próximamente'
+              items={ movies.UpcomingFilms }
+              functionDispatch='upcoming'
+            />
+        </>
+    )
+  }
+
 
     return (
         <>
-
-          <Slider
-            component='movies'
-            title='En cines'
-            items={ movies.CinemaFilms }
-          />
-
-          <Slider
-            component='movies'
-            title='Populares'
-            items={ movies.PopularFilms }
-          />
-
-          <Slider
-            component='movies'
-            title='Próximamente'
-            items={ movies.UpcomingFilms }
-          />
-
+          {
+            Loading ? snipper()
+                    : Results.length > 0 
+                        ?  <SearchResults /> 
+                        :  sliderMovies()     
+          }
         </>
     )
 }

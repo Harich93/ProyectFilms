@@ -1,3 +1,6 @@
+.details-frame {
+    // height: 116vh;
+}
 
 .details-title {
     color: white;
@@ -6,6 +9,7 @@
     left: 15px;
     position: fixed;
     top: 10px;
+    width: 15%;
     z-index: 100;
 
     span {
@@ -16,16 +20,15 @@
 .details-row {
     // background-color: rgb(30, 255, 0);
     color: white;
-    display: flex;
-    flex-direction: row;
     height: 90vh;
     padding: 50px;
 
     .details-container {
         justify-content: space-evenly;
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 150px;
+        padding-right: 150px;
         // background-color: violet;
+        width: 100%;
         
         .details-poster, .details-description{
             margin-left: 20px;
@@ -34,11 +37,12 @@
         
         .details-poster {
             background-color: white;
-            width: 25vmax;
-            height: 37vmax;
             border-radius: 20px;
             background-repeat: no-repeat;
             background-size: cover;
+            box-shadow: -0px 0 1200px $pastelPink;
+            height: 37vmax;
+            width: 25vmax;
         }
         
         .details-description {
@@ -48,17 +52,30 @@
             padding: 20px;
             max-height: 50vh;
             overflow: hidden;
+
+            .title {
+                background: linear-gradient(270deg, $dark 1%, white );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: bold;
+                margin-left: 50px;
+                width: 85%;
+                
+            }
             
             .details-text {
                 // background-color: turquoise;
             }
             
-            .details-actors {
-                position: absolute;
-                background-color: rgb(56, 11, 82);
-            }
         }
     }
     
+    
+}
+
+.details-actors {
+
+    // background-color: turquoise;
+    // display: flex;
 
 }

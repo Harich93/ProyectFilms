@@ -15,7 +15,7 @@ export const ItemSliderCast = ( { cast }:ItemSliderCast) => {
     const dispatch = useDispatch();
     
     const poster = getPoster( cast.profile_path! );
-    const noPoster = 'https://static.thenounproject.com/png/3674269-200.png'
+
     
     // const handleOnClick = () => {
     //     dispatch( setSelectedMovie( cast.cast_id ) );
@@ -26,7 +26,7 @@ export const ItemSliderCast = ( { cast }:ItemSliderCast) => {
             <div 
                 className='slider-item cast' 
                 style={{ 
-                    backgroundImage: `${ poster.includes('GNhxO.png') ? `url(${noPoster})` : `url(${poster})`  }` 
+                    backgroundImage: `url(${poster})` 
                 }}
                 // onClick={ handleOnClick }
             >

@@ -1,20 +1,17 @@
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { useForm } from '../../Hooks/useForm';
-
-
-
+import { deleteResults } from '../../Actions/searchActions';
+import { Seach } from '../Search/Seach'
 
 
 export const Navbar = () => {
 
-    const [ values, handleInputChange ] = useForm({ title: '' });
-
-    const { title } = values;
+    const dispatch = useDispatch();
 
     return (
         
         <ul className="myNav">
-            <li className="myNav-item">
+            <li className="myNav-item " onClick={ () => dispatch( deleteResults() ) }>
                 <Link to="/films" className="nav-link">Peliculas</Link>
             </li>
             <li className="myNav-item">
@@ -22,17 +19,9 @@ export const Navbar = () => {
             </li>
 
             <li className="myNav-item">
-                <i className="fas fa-search nav-link" style={{ fontSize: 11}}>
-                    <input 
-                        className='nav-search ms-3'
-                        type='text'
-                        placeholder='Buscar...'
-                        name='title'
-                        value={title}
-                        onChange={ handleInputChange }
-                        autoComplete='off'
-                    />
-                </i>
+                <div className='nav-link'>
+                    <Seach />
+                </div>
             </li>
         </ul>
   

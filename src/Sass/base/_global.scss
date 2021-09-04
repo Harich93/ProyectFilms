@@ -5,6 +5,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
 
+
     
     &.stop-scrolling {
         height: 100%;
@@ -17,6 +18,9 @@ body {
 
 }
 
-.animate__animated,.animate__fadeInDown,.animate__fadeInRight {
+.animate__animated,.animate__fadeInDown {
     --animate-duration: 3s;
-  }
+}
+.animate__fadeInRight, .animate__fadeInLeft {
+    --animate-duration: 1.5s;
+}

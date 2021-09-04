@@ -18,7 +18,7 @@ export const DetailsPage = () => {
 
     } = useSelector<RootState>(state => state.activeR) as ActiveRState;
 
-   console.log( movie?.id)
+
 
     useEffect(() => {
         movie !== undefined &&
@@ -27,7 +27,7 @@ export const DetailsPage = () => {
 
 
     return (
-        <>
+        <div className='details-frame'>
             <div className='details-title'>
                 <h2>{ movie?.title}</h2>
                 <i className="far fa-star"> {movie?.vote_average}</i>
@@ -38,13 +38,13 @@ export const DetailsPage = () => {
                 <div className='details-container row'>
 
                     <div 
-                        className='details-poster col-8'
+                        className='details-poster col-xl-8'
                         style={{ backgroundImage: `url(${getPoster( movie!.poster_path )})`}}
                     ></div>
 
-                    <div className='details-description col-4'>
+                    <div className='details-description col-xl-4'>
                         <div className='details-text'>
-                            <h1 className='slider-title ms-0'>{movie?.original_title}</h1>
+                            <h1 className='title ms-0'>{movie?.original_title}</h1>
                             <hr />
                             {/* { movie?.original_language } */}
                             { movie?.overview }
@@ -52,19 +52,18 @@ export const DetailsPage = () => {
                     </div>
 
 
-                </div>
-                
-            </div>
+                </div> 
 
-            <div className='details-actors'>
-                { 
-                    <Slider
-                        component='cast'
-                        title='Actores'
-                        items={ cast }
-                    />
-                }
             </div>
-        </>
+                <div className='details-actors'>
+                    { 
+                        <Slider
+                            component='cast'
+                            title='Actores'
+                            items={ cast }
+                        />
+                    }
+                </div>
+        </div>
     )
 }

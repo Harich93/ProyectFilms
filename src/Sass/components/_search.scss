@@ -1,0 +1,83 @@
+.search-frame {
+    
+    .input-search {
+    
+        border-radius: 10px;
+        border: solid 0.1px lighten($color: $dark-light, $amount: 10);
+        background-color: $dark-light;
+        color: white;
+        font-size: 13px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    
+        &.disable{
+            display:none;
+        }
+    
+        &:focus {
+            outline: none;
+            border: solid 0.1px $blue-light;
+        }
+    }
+}
+
+// .search-res-frame {
+//     height: 92.1vh;
+// // }
+
+.search-res-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // height: 110vh;
+    padding: 100px;
+    margin-bottom: 100px;
+}
+
+.search-card { 
+    // background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    height: 28vh;
+    margin: 20px;
+    margin-right: 20px;
+    width: 18vh;
+    
+    transition:  box-shadow .8s ease-in-out, color .5s ease-in-out, background-color .9s ease-in-out;
+    
+    
+    
+    .search-card-title {
+        .far { font-size: 13px }
+    }
+    
+    
+    .search-card-description {
+        color: white;
+        display: none;
+        font-family:  Calibri, sans-serif;
+        font-size: 12px;
+        padding: 15px;
+        width: 18vh;
+        overflow: hidden;
+        
+    }
+    
+    
+    &:hover {   
+        box-shadow: 0 0 10px white;
+        
+        .search-card-description{
+            display: inline-block;
+            border-radius: 20px;
+            background-color: transparentize($color: $dark, $amount: 0.1);
+        }
+    }
+        
+}
