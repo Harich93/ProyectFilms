@@ -1,4 +1,4 @@
-import { Movie, MovieModel, Cast, CreditsModel } from '../Types/Models/models';
+import { Movie, MovieModel, Cast, CreditsModel, DetailsModel } from '../Types/Models/models';
 
 let pageCinema    = 0;
 let pagePopular   = 0;
@@ -81,12 +81,36 @@ export const getUpcomingMovies = async():Promise<Movie[]> => {
     }
 };
 
-export const getCreditsMovie = async( id:number ) => {
+export const getCreditsMovie = async( id:number ):Promise<Cast[]> => {
 
     const data:CreditsModel = await customFetch(`/3/movie/${id}/credits`);
     const casts:Cast[] = await data.cast;  
 
     return casts;
 };
+
+export const getSimilarMovies = async( id:number ):Promise<Movie[]> => {
+
+    const data:MovieModel = await customFetch( `/3/movie/${id}/similar`);
+    const movies = await data.results;
+
+    return movies;
+}
+
+export const getRecommendMovies = async( id:number ):Promise<Movie[]> => {
+
+    const data:MovieModel = await customFetch( `/3/movie/${id}/recommendations`);
+    const movies = await data.results;
+
+    return movies;
+}
+
+export const getDetailsMovies = async( id:number ):Promise<DetailsModel> => {
+
+    const data:DetailsModel = await customFetch( `/3/movie/${id}`);
+    const details = await data;
+
+    return details;
+}
 
 

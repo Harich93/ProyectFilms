@@ -8,6 +8,7 @@ import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } f
 import {  Slider } from '../Sliders/Slider';
 import { iLoadRState, MoviesRState, iSearchRState } from '../../Types/interface/interfaces';
 import { SearchResults } from '../Search/SearchResults';
+import { Snniper } from '../Snniper/Snniper';
 
 
 export const HomePage = () => {
@@ -27,17 +28,16 @@ export const HomePage = () => {
   }, []);
 
   
-  const snipper = () => {
-    return (
-      <div className='spinner-frame'>
-        <div className="spinner"></div>
-      </div> 
-    )
-  }
-
   const sliderMovies = () => {
     return (
       <>
+            <Slider
+              component='movies'
+              title='Próximamente'
+              items={ movies.UpcomingFilms }
+              functionDispatch='upcoming'
+            />
+
             <Slider
               component='movies'
               title='En cines'
@@ -52,13 +52,7 @@ export const HomePage = () => {
               items={ movies.PopularFilms }
               functionDispatch='popular'
             />
-  
-            <Slider
-              component='movies'
-              title='Próximamente'
-              items={ movies.UpcomingFilms }
-              functionDispatch='upcoming'
-            />
+
         </>
     )
   }
@@ -67,7 +61,7 @@ export const HomePage = () => {
     return (
         <>
           {
-            Loading ? snipper()
+            Loading ? <Snniper />
                     : Results.length > 0 
                         ?  <SearchResults /> 
                         :  sliderMovies()     

@@ -1,4 +1,4 @@
-import { Movie, Cast } from '../Models/models';
+import { Movie, DetailsModel } from '../Models/models';
 
 
 export interface Action {
@@ -13,9 +13,11 @@ export interface MoviesRState {
 };
 
 export interface ActiveRState {
-    ActiveMovie? : Movie
-    ActiveCast   : []
-    ActiveImages : []
+    ActiveMovie?    : Movie
+    ActiveCast      : []
+    ActiveSimilar   : Movie[]
+    ActiveRecommend : Movie[]
+    ActiveDetails?  : DetailsModel
 }
 
 export interface iLoadRState {

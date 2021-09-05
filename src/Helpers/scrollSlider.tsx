@@ -45,7 +45,7 @@ export const scrollSliderTouch = ( id:string ) => {
                     : document.querySelector(`#slider-${id}`)!.scrollLeft += 350    
         });
                 
-        a.addEventListener('touchcancel', () => {
+        a.addEventListener('touchend', () => {
             body.className = '';
             console.log('cancel touch')
         });

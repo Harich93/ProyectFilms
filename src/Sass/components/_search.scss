@@ -1,5 +1,21 @@
+
+
+//=============
+// Search nav
+//=============
 .search-frame {
-    
+
+    .fas.fa-search {
+        &:hover {
+            color: $blue-light;
+        }
+    }
+    .fas.fa-times {
+        &:hover {
+            color: red;
+        }
+    }
+
     .input-search {
     
         border-radius: 10px;
@@ -8,12 +24,7 @@
         color: white;
         font-size: 13px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
-    
-        &.disable{
-            display:none;
-        }
-    
+        
         &:focus {
             outline: none;
             border: solid 0.1px $blue-light;
@@ -21,17 +32,35 @@
     }
 }
 
-// .search-res-frame {
-//     height: 92.1vh;
-// // }
+
+
+
+//===============
+// Search results
+//===============
+.search-res-title {
+    background: linear-gradient(270deg, $dark 1%, white );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin-left: 50px;
+    width: 30vw;
+}
 
 .search-res-container {
+    // background-color: darkgreen;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     // height: 110vh;
-    padding: 100px;
-    margin-bottom: 100px;
+    padding: 0 100px 50px 100px;
+
+
+    // margin-bottom: 100px;
+
+    a{
+        cursor: auto;
+    }
 }
 
 .search-card { 

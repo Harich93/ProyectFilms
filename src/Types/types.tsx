@@ -11,6 +11,12 @@ export const types = {
 
     activeSetCast       : '[active] Set cast active',
     activeSetMovie      : '[active] Set movie active',
+    activeSetSimilar    : '[active] Set similar active',
+    activeAddSimilar    : '[active] Add similar active',
+    activeSetRecommend  : '[active] Set recommendations active',
+    activeAddRecommend  : '[active] Add recommendations active',
+    activeSetDetails    : '[active] Set details active',
+
 
     loadSetTrue         : '[load] Set load true',
     loadSetFalse        : '[load] Set load false',

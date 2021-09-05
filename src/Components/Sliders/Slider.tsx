@@ -59,7 +59,9 @@ export const Slider = ( { title, itemCounter, items, component, functionDispatch
         <div className='animate__animated animate__fadeIn'>
             <h2 className='slider-title'>{title}</h2>
 
-            <div id={`slider-${titleId}`} className='slider-frame' onWheel={ scrollInfinite  } onTouchMove={ scrollInfinite }> 
+            <div id={`slider-${titleId}`} className='slider-frame' onWheel={ scrollInfinite  } onTouchMove={ scrollInfinite }
+                
+            > 
 
                 <div className={`slider-container ${ component === 'cast' ? 'cast' : 'movie' }`}>
                     {

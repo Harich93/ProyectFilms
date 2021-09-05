@@ -8,14 +8,8 @@ export const Seach = () => {
 
     const dispatch = useDispatch();
 
-    const [ values, handleInputChange ] = useForm({ query: '' });
+    const [ values, handleInputChange, reset] = useForm({ query: '' });
     const { query } = values ;
-
-    const [inputView, setInputView] = useState(true);
-
-    const handleChangeView = () => {
-        setInputView( !inputView )
-    }
 
     useEffect(() => {
         query.length > 2
@@ -30,7 +24,6 @@ export const Seach = () => {
             <i 
                 className="fas fa-search" 
                 style={{ fontSize: 13}}
-                onClick={ handleChangeView }
                 role='button'
             ></i>
             <input 
@@ -41,8 +34,15 @@ export const Seach = () => {
                 value={query}
                 onChange={ handleInputChange }
                 autoComplete='off'
-                hidden={ inputView }
             />
+
+                <i 
+                    className="fas fa-times" 
+                    style={{ marginLeft: 10,fontSize: 13}}
+                    onClick={ reset }
+                    
+                ></i>
+         
         </div>
     )
 }

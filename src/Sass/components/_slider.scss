@@ -1,5 +1,4 @@
 .slider-title {
-    // color: $pastelPink;
     background: linear-gradient(270deg, $dark 1%, white );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -9,9 +8,11 @@
 }
 
 .slider-frame {
-    height: 30vh;
+    // background-color: khaki;
+    height: 32vh;
     position: relative;
-    // background-color: $dark-light;
+    display: flex;
+    align-items: center;
     margin: 0 auto;
     margin-bottom: 50px;
     overflow: hidden;
@@ -46,33 +47,41 @@
     }
     
     .slider-container {
-        // transition: margin-left .2s ease, left .5s ease;
+        // background-color: violet;
         display: flex;
-        justify-content: center;
         flex-direction: row;
-        position: absolute;
-        overflow: hidden;
+        height: 95%;
+        align-items: center;
         left: 0;
-        z-index: 1;
- 
+        overflow: hidden;
+        position: absolute;
+        
         .slider-item { 
             background-color: $dark;
-            background-repeat: no-repeat;
             background-size: cover;
+            background-repeat:no-repeat;
             border-radius: 20px;
             float: left;
             height: 28vh;
-            margin-top: 5px;
             margin-right: 20px;
             width: 19vh;
-            box-shadow: 2px 2px 5px $dark-light;
+            // box-shadow: 2px 2px 5px $dark-light;
+            
+            @media (max-width: 19vh) {
+                .slider-item{
+                    background-size: cover;
+                }
+            }
 
             overflow: hidden;
             
             transition: width .6s ease-out;
+            transition-delay: 0.5s;
 
             &.cast {
-                height: 23vh;
+                background-position: center;
+                border-radius: 90px;
+                height: 15vh;
                 width: 15vh;
             }
 
@@ -99,28 +108,30 @@
             }
             
             &:hover {
+                
                 background-position: left;
                 background-size: contain;
                 box-shadow: 3px 3px 6px $dark-light;
                 cursor: pointer;
                 display: flex;
                 flex-direction: row;
-                transform: scale(101%);
                 width: 65vh;
+                z-index: 1;
+                
                 
                 &.cast {
+                    border-radius: 90px;
                     width: 50vh;
-
+                    
                     .slider-item-description {
-                        margin-left: 20px;
-                        margin-top: 20px;
+                        padding: 10px;
                     }
 
                     ul {
                         margin-top: 20px;
                         font-size: 12px;
                     }
-
+                    
                     span {
                         color: lighten($color: $dark-light, $amount: 20);
                         margin-right: 10px;
@@ -128,7 +139,8 @@
                 }
                 
                 .slider-item-description {
-                    display:inline-block;
+                    display: block;
+                    
                 }
 
 

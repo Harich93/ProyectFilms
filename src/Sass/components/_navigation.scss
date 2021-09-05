@@ -24,11 +24,15 @@
     
         &:hover {
             color: $blue-light;
+            &.search {
+                color: white;
+            }
         }
     
         &:active {
             color: $blue;
         }
+
 
     }
 }

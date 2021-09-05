@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Movie } from '../../Types/Models/models';
 import { getPoster } from '../../Helpers/getPoster';
 import { setActiveMovie } from '../../Actions/activeActions';
+import { deleteResults } from '../../Actions/searchActions';
 
 
 
@@ -18,6 +19,7 @@ export const ItemSliderMovie = ( { movie }:ItemSlider) => {
 
     const handleOnClick = () => {
         dispatch( setActiveMovie( movie ) );
+        // dispatch( deleteResults() );
     } 
 
     return (
@@ -30,7 +32,7 @@ export const ItemSliderMovie = ( { movie }:ItemSlider) => {
                 <div className='col-4' >
 
                 </div>
-                <div className='slider-item-description col-8 animate__animated animate__fadeInDown'>
+                <div className='slider-item-description col-8 animate__animated animate__fadeIn'>
                     <div className='slider-item-title'>
                         <h3>{ movie.title }</h3>
                         <i className="far fa-star"> {movie.vote_average}</i>
