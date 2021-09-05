@@ -40,6 +40,20 @@ export const Slider = ( { title, itemCounter, items, component, functionDispatch
     useEffect(() => {
         scrollSlider( titleId )
     }, [])
+
+    const moduleMovies = () => (
+        items?.map( film => ( 
+            <ItemSliderMovie key={film.id} movie={ film }/> 
+        ))
+    );
+
+    const moduleCasts = () => (
+        items?.map( cast => ( 
+            <ItemSliderCast key={cast.id} cast={ cast }/> 
+        ))
+    );
+        
+    
     
     return (
         <div className='animate__animated animate__fadeIn'>
@@ -50,17 +64,8 @@ export const Slider = ( { title, itemCounter, items, component, functionDispatch
                 <div className={`slider-container ${ component === 'cast' ? 'cast' : 'movie' }`}>
                     {
                         component === 'movies' 
-                        ?(
-                            items?.map( film => ( 
-                                    <ItemSliderMovie key={film.id} movie={ film }/> 
-                            ))
-
-                        )
-                        :(
-                            items?.map( cast => ( 
-                                <ItemSliderCast key={cast.id} cast={ cast }/> 
-                        ))
-                        )   
+                            ? moduleMovies()
+                            : moduleCasts()   
                     }
                 </div>
             </div>
