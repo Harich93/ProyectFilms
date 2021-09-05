@@ -5,11 +5,11 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
 
-
     
     &.stop-scrolling {
         height: 100%;
         overflow: hidden;
+        touch-action: none;
     }
 
     &::-webkit-scrollbar {

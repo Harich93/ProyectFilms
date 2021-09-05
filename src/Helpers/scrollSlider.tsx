@@ -3,7 +3,7 @@ export const scrollSlider = ( id:string ) => {
 
     const a = document.querySelector(`#slider-${id}`) as HTMLElement;
 
-
+    scrollSliderTouch( id );
     
     a.addEventListener('mouseover', () => {
         
@@ -24,8 +24,32 @@ export const scrollSlider = ( id:string ) => {
             a.addEventListener('click', () => {
                 body.className = '';
             });
-            
-            
+  
+    });
+}
+
+export const scrollSliderTouch = ( id:string ) => {
+
+    const a = document.querySelector(`#slider-${id}`) as HTMLElement;
+   
+    a.addEventListener('touchstart', ( e ) => {
+        
+        const body = document.getElementsByTagName('body')[0]
+        body.className = 'stop-scrolling';
+        const start = e.touches[0].clientX;
+
+        a.addEventListener('touchmove', (e) => {
+            const end = e.touches[0].clientX 
+                start < end 
+                    ? document.querySelector(`#slider-${id}`)!.scrollLeft -= 350 
+                    : document.querySelector(`#slider-${id}`)!.scrollLeft += 350    
+        });
+                
+        a.addEventListener('touchcancel', () => {
+            body.className = '';
+            console.log('cancel touch')
+        });
+        
     });
 }
 

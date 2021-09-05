@@ -1,7 +1,7 @@
 
 import { ItemSliderMovie} from './ItemSliderMovie';
 import { useEffect, useRef } from 'react';
-import { scrollSlider } from '../../Helpers/scrollSlider';
+import { scrollSlider, scrollSliderTouch } from '../../Helpers/scrollSlider';
 import { ItemSliderCast } from './ItemSliderCast';
 import { useDispatch } from 'react-redux';
 import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../Actions/moviesActions';
@@ -41,14 +41,11 @@ export const Slider = ( { title, itemCounter, items, component, functionDispatch
         scrollSlider( titleId )
     }, [])
     
-
-    
-
     return (
         <div className='animate__animated animate__fadeIn'>
             <h2 className='slider-title'>{title}</h2>
 
-            <div id={`slider-${titleId}`} className='slider-frame' onWheel={ scrollInfinite  }> 
+            <div id={`slider-${titleId}`} className='slider-frame' onWheel={ scrollInfinite  } onTouchMove={ scrollInfinite }> 
 
                 <div className={`slider-container ${ component === 'cast' ? 'cast' : 'movie' }`}>
                     {
