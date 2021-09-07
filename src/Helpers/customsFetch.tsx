@@ -1,4 +1,5 @@
 import { Movie, MovieModel, Cast, CreditsModel, DetailsModel } from '../Types/Models/models';
+import { Video, VideosModel } from '../Types/interface/interfaces';
 
 let pageCinema    = 0;
 let pagePopular   = 0;
@@ -111,6 +112,14 @@ export const getDetailsMovies = async( id:number ):Promise<DetailsModel> => {
     const details = await data;
 
     return details;
+}
+
+export const getVideosMovies = async( id:number ):Promise<Video[]> => {
+
+    const data:VideosModel = await customFetch( `/3/movie/${id}/videos`);
+    const videos = await data;
+
+    return videos.results;
 }
 
 

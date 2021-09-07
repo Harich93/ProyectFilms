@@ -11,11 +11,18 @@ export const Seach = () => {
     const [ values, handleInputChange, reset] = useForm({ query: '' });
     const { query } = values ;
 
+    const [view, setView] = useState(true);
+
     useEffect(() => {
-        query.length > 2
-            ? dispatch( startGetSearchMovies( query ))
-            : dispatch( deleteResults() );
-    }, [ query.length ])
+        if (query.length > 2) {
+                dispatch( startGetSearchMovies( query ));
+                setView( false );
+        }
+        else {
+                dispatch( deleteResults() );
+                setView( true );
+        }
+    }, [ query, dispatch])
 
 
 
@@ -40,6 +47,7 @@ export const Seach = () => {
                     className="fas fa-times" 
                     style={{ marginLeft: 10,fontSize: 13}}
                     onClick={ reset }
+                    hidden={ view }
                     
                 ></i>
          

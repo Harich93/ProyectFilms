@@ -16,6 +16,7 @@ export const types = {
     activeSetRecommend  : '[active] Set recommendations active',
     activeAddRecommend  : '[active] Add recommendations active',
     activeSetDetails    : '[active] Set details active',
+    activeSetVideos     : '[active] Set videos active',
 
 
     loadSetTrue         : '[load] Set load true',

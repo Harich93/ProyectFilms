@@ -64,18 +64,15 @@
 }
 
 .search-card { 
-    // background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
+    box-shadow: 5px 5px 10px $dark;
     cursor: pointer;
-    display: flex;
-    flex-direction: row;
     float: left;
     height: 28vh;
-    margin: 20px;
-    margin-right: 20px;
+    margin: 10px;
     width: 18vh;
     
     transition:  box-shadow .8s ease-in-out, color .5s ease-in-out, background-color .9s ease-in-out;
@@ -109,4 +106,24 @@
         }
     }
         
+}
+
+@media (max-width: 400px ) {
+    .search-res-title {
+        background: linear-gradient(270deg, $dark 1%, white );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        margin-left: 50px;
+        width: 80vw;
+    }
+
+    .search-res-container {
+        padding: 0;
+
+    }
+    .search-card { 
+        height: 18vh;
+        width: 12vh;
+    }
 }

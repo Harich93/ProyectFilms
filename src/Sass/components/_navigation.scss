@@ -1,7 +1,7 @@
 
 .myNav {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-right: 10px;
     list-style: none;
     
@@ -34,5 +34,47 @@
         }
 
 
+    }
+}
+
+@media (max-width: 618px ) {
+
+    .myNav {
+        // display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+        // margin-right: 5px;
+        list-style: none;
+        
+        transition: width .4s ease-in-out;
+    
+        .myNav-item {
+            // padding: 10px;
+            color: white;
+        
+            .text {
+                position: static;
+                left: 0;
+            }
+    
+        }
+        
+        .nav-link {
+            color: white;
+            font-size: 15px;
+        
+            &:hover {
+                color: $blue-light;
+                &.search {
+                    color: white;
+                }
+            }
+        
+            &:active {
+                color: $blue;
+            }
+    
+    
+        }
     }
 }

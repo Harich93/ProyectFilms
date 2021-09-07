@@ -1,7 +1,3 @@
-.details-frame {
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 .details-title {
     color: white;
@@ -13,8 +9,15 @@
     width: 20vw;
     z-index: 100;
 
+    transition: color .9s ease-in-out,transform .9s ease-in-out;
+    
     span {
         margin: 20px;
+    }
+
+    &.disable-title{
+       transform: translateY(-100px);
+       color: transparent;
     }
 }
 
@@ -39,7 +42,7 @@
             border-radius: 20px;
             background-repeat: no-repeat;
             background-size: cover;
-            box-shadow: -0px 0 1200px $pastelPink;
+            box-shadow: -20px 0 1200px $pastelPink;
             height: 37vmax;
             width: 25vmax;
         }
@@ -48,7 +51,7 @@
             // background-color: tomato;
             display: flex;
             flex-direction: column;
-            padding: 20px 0 0 0;
+            padding: 20px;
             max-height: 100%;
             overflow: hidden;
 
@@ -60,18 +63,41 @@
                 margin-left: 50px;
                 width: 85%;
                 
-            }
+            };
             
             .details-text {
-                padding: 0 10px 0 0;
+                padding: 0 10px 30px 0;
                 // background-color: turquoise;
-            }
+            };
+
+            .details-videos {
+                display: flex;
+                justify-content: flex-end;
+
+                .btn-video {
+                    border: none;
+                    color: $blue;
+                    background-color: transparent;
+                    // transition: all .4s ease-in-out;
+                    &:hover {
+                        background-color: $blue;
+                        color: $dark-light
+                    }
+                };
+            };
+
+            
+
+            
             
         }
     }
     
-    .details-actors  {   
-        
+    .details-actors  {
+        .slider-item.cast{
+
+            box-shadow: 0 5px 10px $dark;
+        }
         #slider-Actores{
             height: 18vh;
             // background-color: yellowgreen;

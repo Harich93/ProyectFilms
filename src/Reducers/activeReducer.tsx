@@ -4,7 +4,8 @@ import { types } from '../Types/types';
 const initialState:ActiveRState = {
     ActiveCast      : [],
     ActiveSimilar   : [],
-    ActiveRecommend : []
+    ActiveRecommend : [],
+    ActiveVideos    : [],
 }
 
 export const activeReducer = ( state = initialState, action:Action) => {
@@ -50,6 +51,12 @@ export const activeReducer = ( state = initialState, action:Action) => {
             return {
                 ...state,
                 ActiveDetails: action.payload
+            }
+
+        case types.activeSetVideos:
+            return {
+                ...state,
+                ActiveVideos: action.payload
             }
 
         

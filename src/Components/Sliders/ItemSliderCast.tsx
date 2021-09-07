@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Cast } from '../../Types/Models/models';
@@ -6,20 +5,13 @@ import { getPoster } from '../../Helpers/getPoster';
 
 
 
-interface ItemSliderCast {
+interface iItemSliderCast {
     cast : Cast
 };
 
-export const ItemSliderCast = ( { cast }:ItemSliderCast) => {
-
-    const dispatch = useDispatch();
+export const ItemSliderCast = ( { cast }:iItemSliderCast ) => {
     
     const poster = getPoster( cast.profile_path! );
-
-    
-    // const handleOnClick = () => {
-    //     dispatch( setSelectedMovie( cast.cast_id ) );
-    // } 
 
     return (
         <Link to='/details'>
@@ -28,7 +20,6 @@ export const ItemSliderCast = ( { cast }:ItemSliderCast) => {
                 style={{ 
                     backgroundImage: `url(${poster})` 
                 }}
-                // onClick={ handleOnClick }
             >
                 <div className='col-4' >
 

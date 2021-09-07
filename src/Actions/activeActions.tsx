@@ -1,12 +1,14 @@
-import { getCreditsMovie, getDetailsMovies, getRecommendMovies, getSimilarMovies } from '../Helpers/customsFetch';
-import { Action } from '../Types/interface/interfaces';
+import { getCreditsMovie, getDetailsMovies, getRecommendMovies, getSimilarMovies, getVideosMovies } from '../Helpers/customsFetch';
+import { Action, Video } from '../Types/interface/interfaces';
 import { types } from "../Types/types";
 import { Cast, Movie, DetailsModel } from '../Types/Models/models';
-
+import { setLoadingTrue, setLoadingFalse } from './loadActions';
 
 export const startGetCreditsMovieActive = ( id:number ) => {
     return async( dispatch:any ) => {
         try {
+            dispatch( setLoadingTrue() );
+        
             const resp = await getCreditsMovie( id );
             
             dispatch( setCastActive( resp ) );
@@ -23,7 +25,7 @@ export const startGetSimilarActive = ( id:number, firstFetch?:boolean ) => {
             
             const resp = await getSimilarMovies( id );
            
-            resp.length != 0 &&
+            resp.length !== 0 &&
                  firstFetch ? dispatch( setSimilarActive( resp ) )
                             : dispatch( addSimilarActive( resp ) )
             
@@ -39,10 +41,10 @@ export const startGetRecommendActive = ( id:number, firstFetch?:boolean ) => {
             
             const resp = await getRecommendMovies( id );
            
-            resp.length != 0 &&
+            resp.length !== 0 &&
                  firstFetch ? dispatch( setRecommendActive( resp ) )
                             : dispatch( addRecommendActive( resp ) )
-            
+                
         } catch (error) {
             console.warn( error );
         }
@@ -61,6 +63,21 @@ export const startGetDetaisActive = ( id:number ) => {
         }
     }
 };
+
+export const startGetVideosActive = ( id:number ) => {
+    return async( dispatch:any ) => {
+        try {
+            
+            const resp = await getVideosMovies( id );
+            dispatch( setVideosActive( resp ) );
+
+            dispatch( setLoadingFalse() );
+
+        } catch (error) {
+            
+        }
+    }
+}
 
 export const setActiveMovie = ( payload:Movie ):Action => ({
     type: types.activeSetMovie,
@@ -96,3 +113,9 @@ const setDetailsActive = ( payload:DetailsModel ):Action => ({
     type: types.activeSetDetails,
     payload
 });
+
+const setVideosActive = ( payload:Video[] ):Action => ({
+    type: types.activeSetVideos,
+    payload
+});
+

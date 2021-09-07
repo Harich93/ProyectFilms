@@ -25,7 +25,7 @@ export const HomePage = () => {
       dispatch( startGetPopularMovies( true) );
       dispatch( startGetUpcomingMovies( true ) );
     }
-  }, []);
+  }, [dispatch, movies]);
 
   
   const sliderMovies = () => {

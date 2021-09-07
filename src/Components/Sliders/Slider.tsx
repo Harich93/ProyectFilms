@@ -1,12 +1,12 @@
 
 import { ItemSliderMovie} from './ItemSliderMovie';
-import { useEffect, useRef } from 'react';
-import { scrollSlider, scrollSliderTouch } from '../../Helpers/scrollSlider';
+import { useEffect } from 'react';
+import { scrollSlider } from '../../Helpers/scrollSlider';
 import { ItemSliderCast } from './ItemSliderCast';
 import { useDispatch } from 'react-redux';
 import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../Actions/moviesActions';
 
-export interface Slider {
+export interface iSlider {
     title        : string,
     itemCounter? : number,
     items?       : any[],
@@ -15,7 +15,7 @@ export interface Slider {
 }
 
 
-export const Slider = ( { title, itemCounter, items, component, functionDispatch }:Slider ) => {
+export const Slider = ( { title, itemCounter, items, component, functionDispatch }:iSlider ) => {
 
     let funDis:Function;
 
@@ -39,7 +39,7 @@ export const Slider = ( { title, itemCounter, items, component, functionDispatch
     
     useEffect(() => {
         scrollSlider( titleId )
-    }, [])
+    }, [titleId])
 
     const moduleMovies = () => (
         items?.map( film => ( 

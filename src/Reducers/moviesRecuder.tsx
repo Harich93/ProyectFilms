@@ -31,7 +31,7 @@ export const moviesReducer = ( state:MoviesRState = initialState, action:Action 
         case types.moviesAddPopularMovies:
             return {
                 ...state,
-                PopularFilms: [ ...state.PopularFilms , ...action.payload ]
+                PopularFilms: [ ...state.PopularFilms , ...action.payload]
             };
 
         case types.moviesSetUpcomingMovies:

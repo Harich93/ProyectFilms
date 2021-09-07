@@ -3,29 +3,26 @@ export const scrollSlider = ( id:string ) => {
 
     const a = document.querySelector(`#slider-${id}`) as HTMLElement;
 
-    scrollSliderTouch( id );
     
-    a.addEventListener('mouseover', () => {
-        
-        const body = document.getElementsByTagName('body')[0]
+    const body = document.getElementsByTagName('body')[0]
+    
+    a.addEventListener('wheel', (e) => {
         body.className = 'stop-scrolling';
+            e.preventDefault()
+            console.log('wheel')
+            e.deltaY > 0
+            ? (document.querySelector(`#slider-${id}`)!.scrollLeft -= 350 )
+            : document.querySelector(`#slider-${id}`)!.scrollLeft += 350;
+            
+        });
         
-        a.addEventListener('wheel', (e) => {
-                e.deltaY > 0
-                ? (document.querySelector(`#slider-${id}`)!.scrollLeft -= 350 )
-                : document.querySelector(`#slider-${id}`)!.scrollLeft += 350;
-                
+        a.addEventListener('mouseleave', (e) => {
+            e.preventDefault();
+            console.log('mouseleave')
+            body.className = '';
         });
             
-            a.addEventListener('mouseout', () => {
-                body.className = '';
-            });
-            
-            a.addEventListener('click', () => {
-                body.className = '';
-            });
-  
-    });
+        scrollSliderTouch( id );
 }
 
 export const scrollSliderTouch = ( id:string ) => {

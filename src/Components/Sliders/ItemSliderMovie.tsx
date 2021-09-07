@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Movie } from '../../Types/Models/models';
 import { getPoster } from '../../Helpers/getPoster';
 import { setActiveMovie } from '../../Actions/activeActions';
-import { deleteResults } from '../../Actions/searchActions';
 
 
 
@@ -19,7 +18,6 @@ export const ItemSliderMovie = ( { movie }:ItemSlider) => {
 
     const handleOnClick = () => {
         dispatch( setActiveMovie( movie ) );
-        // dispatch( deleteResults() );
     } 
 
     return (
