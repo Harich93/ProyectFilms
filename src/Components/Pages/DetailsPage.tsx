@@ -47,7 +47,6 @@ export const DetailsPage = () => {
 
     useEffect(() => {
        titleHidden( 'details-title', 'disable-title');
-
     }, []);
 
     
