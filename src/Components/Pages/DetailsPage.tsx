@@ -106,29 +106,35 @@ export const DetailsPage = () => {
                                            
                                             <blockquote>{movie?.overview}</blockquote>
                                            
-                                            <ul >
-                                                <li>
-                                                    Duración: 
-                                                    <p>{ duration } </p>
-                                                </li>
-                                                <li>
-                                                    Presupuesto:
-                                                    <p>${ formatDollar.format(details?.budget!)  }</p>
-                                                </li>
-                                                <li>
-                                                    Ganancias: 
-                                                    <p>${ formatDollar.format(details?.revenue!)  }</p>
-                                                </li>
-                                            </ul>
+                                           <div className='details-details'>
+                                                <ul className=' col-lg6'>
+                                                    <li>
+                                                        Duración: 
+                                                        <p>{ duration } </p>
+                                                    </li>
+                                                    <li>
+                                                        Presupuesto:
+                                                        <p>${ formatDollar.format(details?.budget!)  }</p>
+                                                    </li>
+                                                    <li>
+                                                        Ganancias: 
+                                                        <p>${ formatDollar.format(details?.revenue!)  }</p>
+                                                    </li>
+                                                </ul>
 
-                                            <div className='details-videos'>
-                                                {         
-                                                    videos!.map( video => (
-                                                                <ButtonVideo video={ video }/>
-                                                    )) 
-                                                }
-                                            </div>
+                                                <div className='details-videos col-lg-6'>
+                                                    {         
+                                                        videos!.map( video => (
+                                                                    <ButtonVideo video={ video }/>
+                                                        )) 
+                                                    }
+
+                                                </div>
+                                           </div>
+
                                     </div>
+
+
                                 </div>
 
                                     <i className="fas fa-chevron-down" style={{ fontSize: 30 }}></i>
@@ -147,7 +153,17 @@ export const DetailsPage = () => {
                                                 items={cast}
                                                 funInfiniteScroll={ startGetRecommendActive( movie!.id, false)} 
                                             />
-                                
+                                    {
+                                        recommend.length > 0 &&
+                                            <Slider
+                                                component={ <ItemSliderMovie movies={ recommend } /> }
+                                                componentStyle='poster'
+                                                title='Recomendaciones'
+                                                items={recommend} 
+                                                funInfiniteScroll={ startGetRecommendActive( movie!.id, false)}
+                                            />
+                                    }
+                                    
                                             <Slider
                                                 component={ <ItemSliderMovie movies={ similar } /> }
                                                 componentStyle='poster'
@@ -156,16 +172,6 @@ export const DetailsPage = () => {
                                                 funInfiniteScroll={ startGetRecommendActive( movie!.id, false)}
                                             />
 
-                                            {
-                                                recommend.length > 0 &&
-                                                    <Slider
-                                                        component={ <ItemSliderMovie movies={ recommend } /> }
-                                                        componentStyle='poster'
-                                                        title='Recomendaciones'
-                                                        items={recommend} 
-                                                        funInfiniteScroll={ startGetRecommendActive( movie!.id, false)}
-                                                    />
-                                            }
                                         </>
                                     }
                                 </div>

@@ -67,30 +67,7 @@
                 width: 85%;
                 
             };
-            
-            .details-text {
-                // background-color: turquoise;
-                padding: 0 40px 40px 10px;
-                font-weight: bold;
 
-            };
-            
-            ul {
-                display: flex;
-                flex-direction: row;
-                list-style: none;
-                justify-content: center;
-
-                li{
-                    margin-right: 30px;
-                    
-                    p{
-                        font-weight: lighter;
-                    }
-                }
-            }
-
- 
         }
 
         .fas.fa-chevron-down {
@@ -124,16 +101,42 @@
     
 }
 
-
-.details-videos {
-    // background-color: grey;
-    bottom: 0%;
-    justify-content: space-between;
-    display: flex;
-    // justify-content: flex-end;
-
+.details-text {
+    // background-color: turquoise;
+    padding: 0 40px 40px 10px;
+    font-weight: bold;
 
 };
+
+.details-details{
+
+    display: flex;
+    justify-content: space-evenly;
+    
+    ul {
+        // background-color: yellow;
+        
+        list-style: none;
+        justify-content: center;
+    
+        li{
+            margin-right: 30px;
+            
+            p{
+                font-weight: lighter;
+            }
+        }
+    }
+    
+    
+    .details-videos {
+        // background-color: grey;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+    };
+}
+
 
 .details-actors  {
     padding: 30vh 0 0 0;

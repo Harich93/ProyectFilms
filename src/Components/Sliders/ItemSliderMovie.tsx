@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { Movie } from '../../types/Models/models';
+import { Movie, Serie } from '../../types/Models/models';
 import { getPoster } from '../../helpers/getPoster';
 import { setActiveMovie } from '../../actions/activeActions';
 import { ReactElement } from 'react';
@@ -16,7 +16,8 @@ export const ItemSliderMovie = ( { movies }:iItemSliderMovie ):ReactElement => {
 
     const dispatch = useDispatch();
 
-    const handleOnClick = ( movie:Movie ) => {
+    const handleOnClick = ( movie:Movie) => {
+
         dispatch( setActiveMovie( movie ) );
     } 
 

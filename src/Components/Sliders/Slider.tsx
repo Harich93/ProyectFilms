@@ -40,10 +40,12 @@ export const Slider = ( { title, items, component, componentStyle, funInfiniteSc
     }, [titleId])
     
     return (
-        <div className='animate__animated animate__fadeIn' onWheel={ initScrollControl  } onTouchMove={ initScrollControl }>
+        <div className='slider-row animate__animated animate__fadeIn' onWheel={ initScrollControl  } onTouchMove={ initScrollControl }>
+            <hr />
             <h2 className='slider-title'>{title}</h2>
 
             <div id={`slider-${titleId}`} className='slider-frame'> 
+
 
                 <div className={`slider-container ${ componentStyle === 'circle' ? 'circle' : 'poster' }`} >
                     { component }  

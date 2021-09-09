@@ -9,6 +9,7 @@ import { Navbar } from "../Components/nav/Navbar";
 import { DetailsPage } from "../Components/pages/DetailsPage";
 import { HomePage } from "../Components/pages/HomePage";
 import { LoginPage } from "../Components/pages/LoginPage";
+import { SeriesPage } from "../Components/pages/SeriesPage";
 import { SearchResults } from '../Components/search/SearchResults';
 
 
@@ -19,6 +20,7 @@ export const AppRouters = () => {
             <Navbar />
             <Switch>
                 <Route exact path='/films' component={ HomePage } />
+                <Route exact path='/series' component={ SeriesPage } />
                 <Route exact path='/search' component={ SearchResults } />
                 <Route exact path='/details' component={ DetailsPage } />
                 <Route exact path='/auth/login' component={ LoginPage } />

@@ -10,37 +10,37 @@ const initialState:MoviesRState = {
 export const moviesReducer = ( state:MoviesRState = initialState, action:Action ) => {
 
     switch ( action.type ) {
-        case types.moviesSetCinemaMovies:
+        case types.moviesSetCinema:
             return {
                 ...state,
                 CinemaFilms: action.payload
             };
 
-        case types.moviesAddCinemaMovies:
+        case types.moviesAddCinema:
             return {
                 ...state,
                 CinemaFilms: [ ...state.CinemaFilms ,...action.payload  ]
             }
 
-        case types.moviesSetPopularMovies:
+        case types.moviesSetPopular:
             return {
                 ...state,
                 PopularFilms: action.payload
             };
 
-        case types.moviesAddPopularMovies:
+        case types.moviesAddPopular:
             return {
                 ...state,
                 PopularFilms: [ ...state.PopularFilms , ...action.payload]
             };
 
-        case types.moviesSetUpcomingMovies:
+        case types.moviesSetUpcoming:
             return {
                 ...state,
                 UpcomingFilms: action.payload
             }
 
-        case types.moviesAddUpcomingMovies:
+        case types.moviesAddUpcoming:
             return {
                 ...state,
                 UpcomingFilms: [ ...state.UpcomingFilms , ...action.payload]

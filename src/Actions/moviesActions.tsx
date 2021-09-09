@@ -4,6 +4,10 @@ import { Movie } from '../types/Models/models';
 
 import { types } from '../types/types';
 
+
+
+
+
 export const startGetCinemaMovies = ( firstFetch:boolean = false ) => {
     return async( dispatch:any ) => {
         try {
@@ -53,31 +57,31 @@ export const startGetUpcomingMovies = ( firstFetch:boolean = false ) => {
 
 
 const setCinemaMovies = ( payload:Movie[] ):Action => ({
-    type: types.moviesSetCinemaMovies,
+    type: types.moviesSetCinema,
     payload: payload
 });
 
 const addCinemaMovies = ( payload:Movie[] ):Action => ({
-    type: types.moviesAddCinemaMovies,
+    type: types.moviesAddCinema,
     payload: payload
 });
 
 const setPopularMovies = ( payload:Movie[] ):Action => ({
-    type: types.moviesSetPopularMovies,
+    type: types.moviesSetPopular,
     payload: payload
 });
 
 const addPopularMovies = ( payload:Movie[] ):Action => ({
-    type: types.moviesAddPopularMovies,
+    type: types.moviesAddPopular,
     payload
 })
 
 const setUpcomingMovies = ( payload:Movie[] ):Action => ({
-    type: types.moviesSetUpcomingMovies,
+    type: types.moviesSetUpcoming,
     payload: payload
 });
 
 const addUpcomingMovies = ( payload:Movie[] ):Action => ({
-    type: types.moviesAddUpcomingMovies,
+    type: types.moviesAddUpcoming,
     payload: payload
 });

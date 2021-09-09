@@ -1,4 +1,4 @@
-import { Cast, DetailsModel, Movie } from "../Models/models";
+import { Cast, DetailsModel, Movie, Serie } from "../Models/models";
 
 
 
@@ -14,12 +14,21 @@ export interface MoviesRState {
 };
 
 export interface ActiveRState {
-    ActiveMovie?    : Movie
-    ActiveCast      : Cast[]
-    ActiveSimilar   : Movie[]
-    ActiveRecommend : Movie[]
-    ActiveDetails?  : DetailsModel
-    ActiveVideos?   : Video[] 
+    ActiveMovie?         : Movie
+    ActiveCast           : Cast[]
+    ActiveSimilar        : Movie[]
+    ActiveRecommend      : Movie[]
+    ActiveDetails?       : DetailsModel
+    ActiveVideos?        : Video[] 
+}
+
+export interface iActiveSerieRState {
+    ActiveSerie?              : Serie
+    ActiveSeerieCast          : Cast[]
+    ActiveSerieSimilar        : Movie[]
+    ActiveSerieRecommend      : Movie[]
+    ActiveSerieDetailsSerie?  : DetailsModel
+    ActiveSerieVideos?        : Video[] 
 }
 
 export interface ModalRState {
@@ -52,3 +61,10 @@ export interface Video {
     official:     boolean;
     id:           string;
 }
+
+export interface iSeriesRState {
+    SeriesOnAir     : Serie[]
+    SeriesPopular   : Serie[]
+    SeriesTop       : Serie[]
+}
+

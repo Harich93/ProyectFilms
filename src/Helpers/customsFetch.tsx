@@ -1,4 +1,4 @@
-import { Movie, MovieModel, Cast, CreditsModel, DetailsModel } from '../types/Models/models';
+import { Movie, MovieModel, Cast, CreditsModel, DetailsModel, TvModel, Serie } from '../types/Models/models';
 import { Video, VideosModel } from '../types/interface/interfaces';
 
 let pageCinema    = 0;
@@ -61,7 +61,7 @@ export const getCinemaFilms = async():Promise<Movie[]> => {
 export const getPopularFilms = async():Promise<Movie[]> => {
     pagePopular++;
 
-    const data:MovieModel = await customFetch('/3/movie/popular', pagePopular);
+    const data:MovieModel = await customFetch('/3/movie/top_rated', pagePopular);
 
     if(pagePopular >= data.total_pages) 
         return []
@@ -129,4 +129,27 @@ export const getVideosMovies = async( id:number ):Promise<Video[]> => {
 // Peticiones TV
 //==============
 
+export const getOnAirTv = async():Promise<Serie[]> => {
+
+    const data:TvModel = await customFetch( `/3/tv/on_the_air`);
+    const series = await data;
+
+    return series.results;
+}
+
+export const getPopular = async():Promise<Serie[]> => {
+
+    const data:TvModel = await customFetch( `/3/tv/popular`);
+    const series = await data;
+
+    return series.results;
+}
+
+export const getTop = async():Promise<Serie[]> => {
+
+    const data:TvModel = await customFetch( `/3/tv/top_rated`);
+    const series = await data;
+
+    return series.results;
+}
 

@@ -1,14 +1,15 @@
 import { applyMiddleware, combineReducers, compose, createStore  } from "redux";
 import thunk from "redux-thunk";
 
-import { activeReducer, loadReducer, moviesReducer, searchReducer, modalReducer } from "../reducers/reducers";
+import { activeReducer, loadReducer, moviesReducer, searchReducer, modalReducer, seriesReducer } from "../reducers/reducers";
 
 const reducers = combineReducers({
     'moviesR' : moviesReducer,
     'activeR' : activeReducer,
     'loadR'   : loadReducer,
     'searchR' : searchReducer,
-    'modalR'  : modalReducer
+    'modalR'  : modalReducer,
+    'seriesR' : seriesReducer,
 });
 
 const composeEnhancers =  ( window as any ).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

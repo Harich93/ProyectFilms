@@ -42,38 +42,25 @@
 
     .myNav {
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
         list-style: none;
         
         transition: width .4s ease-in-out;
-    
+
         .myNav-item {
-            // padding: 10px;
-            color: white;
-        
-            .text {
-                position: static;
-                left: 0;
-            }
+            min-width: 100px;
+        }
     
+
+        .item-search {
+            width: 100%;
+            color: white;
         }
         
-        .nav-link {
-            color: white;
-            font-size: 15px;
         
-            &:hover {
-                color: $blue-light;
-                &.search {
-                    color: white;
-                }
-            }
-        
-            &:active {
-                color: $blue;
-            }
-    
-    
-        }
+    }
+
+    .input-search {
+        width: 70%;
     }
 }

@@ -1,3 +1,8 @@
+
+// ============
+// Movies Model
+// ============
+
 export interface MovieModel {
     page:          number;
     results:       Movie[];
@@ -100,4 +105,33 @@ interface SpokenLanguage {
     english_name: string;
     iso_639_1:    string;
     name:         string;
+}
+
+
+
+//===========
+// Tv Models
+//===========
+
+export interface TvModel {
+    page:          number;
+    results:       Serie[];
+    total_pages:   number;
+    total_results: number;
+}
+
+export interface Serie {
+    backdrop_path:     null | string;
+    first_air_date:    Date;
+    genre_ids:         number[];
+    id:                number;
+    name:              string;
+    origin_country:    string[];
+    original_language: string;
+    original_name:     string;
+    overview:          string;
+    popularity:        number;
+    poster_path:       string;
+    vote_average:      number;
+    vote_count:        number;
 }

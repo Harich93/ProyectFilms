@@ -19,6 +19,10 @@ export const scrollSlider = ( id:string ) => {
             e.preventDefault();
             body.className = '';
         });
+        
+        a.addEventListener('click', (e) => {
+            body.className = '';
+        });
             
         scrollSliderTouch( id );
 }
