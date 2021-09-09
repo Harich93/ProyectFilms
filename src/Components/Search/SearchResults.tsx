@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux"
-import { RootState } from '../../Store/store';
-import { iLoadRState, iSearchRState } from '../../Types/interface/interfaces';
-import { Snniper } from "../Snniper/Snniper";
+import { RootState } from '../../store/store';
+import { iLoadRState, iSearchRState } from '../../types/interface/interfaces';
+import { Snniper } from "../snniper/Snniper";
 import { SearchCard } from './SearchCard';
+
 
 
 export const SearchResults = () => {

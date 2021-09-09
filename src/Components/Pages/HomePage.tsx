@@ -1,71 +1,60 @@
 import '../../Sass/style.scss';
 
 import { useEffect } from 'react';
-import { RootState } from '../../Store/store';
+import { RootState } from '../../store/store';
 import {  useDispatch, useSelector } from 'react-redux';
 
-import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../Actions/moviesActions';
-import {  Slider } from '../Sliders/Slider';
-import { iLoadRState, MoviesRState, iSearchRState } from '../../Types/interface/interfaces';
-import { SearchResults } from '../Search/SearchResults';
-import { Snniper } from '../Snniper/Snniper';
+import { Slider } from '../sliders/Slider';
+import { ItemSliderMovie } from '../sliders/ItemSliderMovie';
+import { MoviesRState } from '../../types/interface/interfaces';
+
+import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../actions/moviesActions';
 
 
 export const HomePage = () => {
 
   const dispatch = useDispatch();
   const movies = useSelector<RootState>( state=> state.moviesR ) as MoviesRState;
-  const { Loading } = useSelector<RootState>( state => state.loadR ) as iLoadRState;
-  const { Results } = useSelector<RootState>( state => state.searchR ) as iSearchRState;
 
 
   useEffect(() => {
+
     if( movies.CinemaFilms.length  === 0 ) {
       dispatch( startGetCinemaMovies( true ) );
       dispatch( startGetPopularMovies( true) );
       dispatch( startGetUpcomingMovies( true ) );
     }
-  }, [dispatch, movies]);
 
-  
-  const sliderMovies = () => {
+
+  }, [movies, dispatch]);
+
     return (
       <>
             <Slider
-              component='movies'
+              component={ <ItemSliderMovie movies={ movies.UpcomingFilms } /> }
+              componentStyle='poster'
               title='Próximamente'
               items={ movies.UpcomingFilms }
-              functionDispatch='upcoming'
+              funInfiniteScroll={ startGetUpcomingMovies( false ) }
             />
 
             <Slider
-              component='movies'
+              component={ <ItemSliderMovie movies={ movies.CinemaFilms } />}
+              componentStyle='poster'
               title='En cines'
               items={ movies.CinemaFilms }
-              functionDispatch='cinema'
+              funInfiniteScroll={ startGetCinemaMovies( false ) }
 
             />
   
             <Slider
-              component='movies'
+              component={ <ItemSliderMovie movies={ movies.PopularFilms } /> }
+              componentStyle='poster'
               title='Populares'
               items={ movies.PopularFilms }
-              functionDispatch='popular'
+              funInfiniteScroll={ startGetPopularMovies( false ) }
             />
 
-        </>
-    )
-  }
-
-
-    return (
-        <>
-          {
-            Loading ? <Snniper />
-                    : Results.length > 0 
-                        ?  <SearchResults /> 
-                        :  sliderMovies()     
-          }
         </>
     )
 }

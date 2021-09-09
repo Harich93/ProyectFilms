@@ -1,21 +1,31 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { startGetCreditsMovieActive, startGetSimilarActive, startGetRecommendActive, startGetDetaisActive, startGetVideosActive } from '../../Actions/activeActions';
-import { getPoster } from "../../Helpers/getPoster";
-import { RootState } from '../../Store/store';
-import { ActiveRState, iLoadRState } from '../../Types/interface/interfaces';
-import { Slider } from "../Sliders/Slider";
-import { formatDollar } from '../../Helpers/formatDollar';
-import { Snniper } from "../Snniper/Snniper";
-import { titleHidden } from "../../Helpers/titleHidden";
+import { RootState } from '../../store/store';
+
+import { ActiveRState, iLoadRState, Video } from '../../types/interface/interfaces';
+import { startGetCreditsMovieActive, startGetSimilarActive, startGetRecommendActive, startGetDetaisActive, startGetVideosActive } from '../../actions/activeActions';
+
+import { Snniper } from "../snniper/Snniper";
+
+import { titleHidden } from "../../helpers/titleHidden";
+import { getPoster } from "../../helpers/getPoster";
+import { getVideo } from '../../helpers/getVideo';
+
+import { Slider } from "../sliders/Slider";
+import { ItemSliderMovie } from "../sliders/ItemSliderMovie";
+import { ItemSliderCast } from '../sliders/ItemSliderCast';
+import { ButtonVideo } from "../videoButton/ButtonVideo";
+import { VideoModal } from "../modal/VideoModal";
+
 
 export const DetailsPage = () => {
 
     
     const dispatch = useDispatch();
+    const formatDollar = Intl.NumberFormat('en-US');
 
     const { Loading } = useSelector<RootState>(state => state.loadR) as iLoadRState
-
+    
     const { 
         ActiveCast      : cast, 
         ActiveSimilar   : similar, 
@@ -23,13 +33,9 @@ export const DetailsPage = () => {
         ActiveRecommend : recommend,
         ActiveDetails   : details,
         ActiveVideos    : videos
-
+        
     } = useSelector<RootState>(state => state.activeR) as ActiveRState;
-
-    const refMovie = useRef( movie );
     
-
-
     useEffect(() => {
         window.scrollTo(0,0);
         
@@ -39,51 +45,49 @@ export const DetailsPage = () => {
             dispatch( startGetRecommendActive( movie.id, true ) );
             dispatch( startGetDetaisActive( movie.id ) );
             dispatch( startGetVideosActive( movie.id ) );
-
-            refMovie.current = movie;
+        
         }
 
-    }, [ movie, dispatch ]);
+    }, [ movie, dispatch]);
+    
+    const getDuration = () => {
+        if( details?.runtime !== undefined ) {
+            const hora = Math.floor(details!.runtime / 60);
+            const minutes = details!.runtime % 60;
 
-    useEffect(() => {
-       titleHidden( 'details-title', 'disable-title');
-    }, []);
+            return `${hora}h. ${minutes}min`;
+        }
 
+        return '0';
+        
+    }
+    
     
 
-    const moduleVideos = () => (
-        videos?.map( video => (
-            <button className='btn-video'>
-                <i className="fab fa-youtube me-2"></i>
-                <span>{video.type}</span> 
-            </button>
-        ))
-    );
-
-    // const titleHidden = ( className:string, classNameAdd:string) => {
-    //     const a = document.querySelector('.details-title');
+    useEffect(() => {
+        titleHidden( 'details-title', 'disable-title')
+    }, []);
+    
+    
         
-    //     window.addEventListener('scroll', (e) => {
-    //         a !== null &&
-    //         window.scrollY > 300 
-    //         ? (document.querySelector('.details-title')!.className = 'details-title disable-title') 
-    //         : (document.querySelector('.details-title')?.className !== 'details-title') && (document.querySelector('.details-title')!.className = 'details-title')
-    //     });
-    // };
-
-    return (
+    let duration = getDuration();
+        return (
         <>   
             {
                 Loading 
                     ? <Snniper />
                     :    
+                    <>
                         <div className='details-frame animate__animated animate__fadeIn'
                             
                         >
                             <div className='details-title'>
                                 <h2>{movie?.title}</h2>
-                                <i className="far fa-star"> {movie?.vote_average}</i>
+                                            
+                                <i className="far fa-star"> {movie?.vote_average}</i> 
                                 <span> Año: {movie?.release_date.substring(0, 4)}</span>
+                               
+
                             </div>
 
                             <div className='details-row'>
@@ -94,51 +98,83 @@ export const DetailsPage = () => {
                                         style={{ backgroundImage: `url(${getPoster(movie!.poster_path)})` }}
                                     ></div>
 
-                                    <div className='details-description col-lg-6'>
-                                        <div className='details-text'>
-                                            <h1 className='title ms-0'>{movie?.original_title}</h1>
+                                    <div className='details-description col-lg-6' >
+                                        <div className='details-text' >
+                                            <h1 className='title ms-0'>{movie?.original_title} </h1>
+
                                             <hr />
-                                            {/* { movie?.original_language } */}
-                                            {movie?.overview}
-                                        </div>
-                                        <ul>
-                                            <li>Presupuesto: ${ formatDollar.format(details?.budget!)  }</li>
-                                            <li>Ganancias: ${ formatDollar.format(details?.revenue!)  }</li>
-                                        </ul>
-                                        <div className='details-videos'>
-                                            { moduleVideos() }
+                                           
+                                            <blockquote>{movie?.overview}</blockquote>
+                                           
+                                            <ul >
+                                                <li>
+                                                    Duración: 
+                                                    <p>{ duration } </p>
+                                                </li>
+                                                <li>
+                                                    Presupuesto:
+                                                    <p>${ formatDollar.format(details?.budget!)  }</p>
+                                                </li>
+                                                <li>
+                                                    Ganancias: 
+                                                    <p>${ formatDollar.format(details?.revenue!)  }</p>
+                                                </li>
+                                            </ul>
 
-                                        </div>
+                                            <div className='details-videos'>
+                                                {         
+                                                    videos!.map( video => (
+                                                                <ButtonVideo video={ video }/>
+                                                    )) 
+                                                }
+                                            </div>
                                     </div>
-
-
                                 </div>
 
-                            <div className='details-actors'>
-                                {
-                                    <>
-                                        <Slider
-                                            component='cast'
-                                            title='Actores'
-                                            items={cast} 
-                                        />
+                                    <i className="fas fa-chevron-down" style={{ fontSize: 30 }}></i>
                             
-                                        <Slider
-                                            component='movies'
-                                            title='Peliculas similares'
-                                            items={similar} 
-                                        />
-
-                                        <Slider
-                                            component='movies'
-                                            title='Recomendaciones'
-                                            items={recommend} 
-                                        />
-                                    </>
-                                }
                             </div>
+
+
+
+                                <div className='details-actors'>
+                                    {
+                                        <>
+                                            <Slider
+                                                component={ <ItemSliderCast casts={ cast } /> }
+                                                componentStyle='circle'
+                                                title='Actores'
+                                                items={cast}
+                                                funInfiniteScroll={ startGetRecommendActive( movie!.id, false)} 
+                                            />
+                                
+                                            <Slider
+                                                component={ <ItemSliderMovie movies={ similar } /> }
+                                                componentStyle='poster'
+                                                title='Peliculas similares'
+                                                items={similar} 
+                                                funInfiniteScroll={ startGetRecommendActive( movie!.id, false)}
+                                            />
+
+                                            {
+                                                recommend.length > 0 &&
+                                                    <Slider
+                                                        component={ <ItemSliderMovie movies={ recommend } /> }
+                                                        componentStyle='poster'
+                                                        title='Recomendaciones'
+                                                        items={recommend} 
+                                                        funInfiniteScroll={ startGetRecommendActive( movie!.id, false)}
+                                                    />
+                                            }
+                                        </>
+                                    }
+                                </div>
                             </div>
                         </div>
+
+                        <VideoModal />
+
+                    </>
             }
         </>
     )

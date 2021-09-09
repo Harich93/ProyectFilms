@@ -13,7 +13,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin: 0 auto;
+    margin-left: 0 ;
     margin-bottom: 50px;
     overflow: hidden;
     z-index: 1;
@@ -51,10 +51,11 @@
         display: flex;
         flex-direction: row;
         height: 95%;
+        min-width: max-content;
         align-items: center;
         left: 0;
         overflow: hidden;
-        position: absolute;
+
         
         .slider-item { 
             background-color: $dark;
@@ -65,20 +66,14 @@
             height: 28vh;
             margin-right: 20px;
             width: 19vh;
-            // box-shadow: 2px 2px 5px $dark-light;
-            
-            @media (max-width: 19vh) {
-                .slider-item{
-                    background-size: cover;
-                }
-            }
+            box-shadow: 2px 2px 5px $dark;
 
             overflow: hidden;
             
             transition: width .6s ease-out;
             transition-delay: 0.5s;
 
-            &.cast {
+            &.circle {
                 background-position: center;
                 border-radius: 90px;
                 height: 15vh;
@@ -119,7 +114,8 @@
                 z-index: 1;
                 
                 
-                &.cast {
+                &.circle {
+
                     border-radius: 90px;
                     width: 50vh;
                     

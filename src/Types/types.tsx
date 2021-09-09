@@ -23,7 +23,12 @@ export const types = {
     loadSetFalse        : '[load] Set load false',
 
     searchSetResults    : '[search] Set results',
-    searchDeleteResults : '[search] Delete results'
+    searchDeleteResults : '[search] Delete results',
+
+    modalSetOpenTrue    : '[modal] Set open true',
+    modalSetOpenfalse   : '[modal] Set open false',
+    modalSetVideo       : '[modal] Set video',
 
 }
+
 

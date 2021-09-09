@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteResults, startGetSearchMovies } from "../../Actions/searchActions";
-import { useForm } from "../../Hooks/useForm";
+import { deleteResults, startGetSearchMovies } from "../../actions/searchActions";
+import { useForm } from "../../hooks/useForm";
 
 
 export const Seach = () => {

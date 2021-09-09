@@ -6,7 +6,7 @@
     left: 15px;
     position: fixed;
     top: 10px;
-    width: 20vw;
+    width: 50vw;
     z-index: 100;
 
     transition: color .9s ease-in-out,transform .9s ease-in-out;
@@ -24,12 +24,16 @@
 .details-row {
     // background-color: rgb(30, 255, 0);
     color: white;
+    margin: 0;
+
+    .row{
+        margin: 0;
+    }
 
 
     .details-container {
         justify-content: space-evenly;
-        padding: 0 10vw 0 20vw;
-        // background-color: violet;
+        padding: 5vw 10vw 0 10vw ;
       
         
         .details-poster, .details-description{
@@ -42,17 +46,16 @@
             border-radius: 20px;
             background-repeat: no-repeat;
             background-size: cover;
-            box-shadow: -20px 0 1200px $pastelPink;
-            height: 37vmax;
-            width: 25vmax;
+            box-shadow: -20px 0 500px $pastelPink;
+            height: 30vmax;
+            width: 20vmax;
         }
         
         .details-description {
             // background-color: tomato;
             display: flex;
             flex-direction: column;
-            padding: 20px;
-            max-height: 100%;
+            padding: 0px;
             overflow: hidden;
 
             .title {
@@ -66,47 +69,101 @@
             };
             
             .details-text {
-                padding: 0 10px 30px 0;
                 // background-color: turquoise;
-            };
+                padding: 0 40px 40px 10px;
+                font-weight: bold;
 
-            .details-videos {
+            };
+            
+            ul {
                 display: flex;
-                justify-content: flex-end;
+                flex-direction: row;
+                list-style: none;
+                justify-content: center;
 
-                .btn-video {
-                    border: none;
-                    color: $blue;
-                    background-color: transparent;
-                    // transition: all .4s ease-in-out;
-                    &:hover {
-                        background-color: $blue;
-                        color: $dark-light
+                li{
+                    margin-right: 30px;
+                    
+                    p{
+                        font-weight: lighter;
                     }
-                };
-            };
+                }
+            }
 
-            
+ 
+        }
 
-            
-            
+        .fas.fa-chevron-down {
+            text-align: center;
+            margin-top: 0vh;
+
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+            transform: scale(1);
+            animation: pulse 2s infinite;
+        }
+       
+       
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                // box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+            }
+        
+            70% {
+                transform: scale(1);
+                // box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+            }
+        
+            100% {
+                transform: scale(0.95);
+                // box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
         }
     }
     
-    .details-actors  {
-        .slider-item.cast{
+    
+}
 
-            box-shadow: 0 5px 10px $dark;
-        }
-        #slider-Actores{
-            height: 18vh;
-            // background-color: yellowgreen;
-            .slider-container.cast{
-                // background-color: yellow;
-            }
-        }
 
+.details-videos {
+    // background-color: grey;
+    bottom: 0%;
+    justify-content: space-between;
+    display: flex;
+    // justify-content: flex-end;
+
+
+};
+
+.details-actors  {
+    padding: 30vh 0 0 0;
+    .slider-item.cast{
+        box-shadow: 0px 2px 10px $dark;
     }
+    #slider-Actores{
+        // box-shadow: 0 0 10px $dark;
+        height: 18vh;
+        // background-color: yellowgreen;
+        .slider-container.cast{
+            // border-radius: 100px;
+            // background:  radial-gradient(circle, transparent 98%, $pastelPink 100%);
+            // background-color: yellow;
+        }
+    }
+
+    #slider-Peliculassimilares {
+        // background:  radial-gradient(circle, transparent 98%, $pastelPink 100%);
+
+        // box-shadow: 0 0px 10px $dark;
+    
+    }
+    .slider-container.movie {
+        // box-shadow: 0 0 10px $blue-light;
+        // background:  radial-gradient(circle, $dark-light 50%, $dark 100%);
+        // background: linear-gradient(  158deg, $dark-light, $dark);
+        // border-radius: 30px;
+    }
+    
 }
 
 @media (max-width: 600px) {
@@ -118,11 +175,12 @@
     .details-row {
         // background-color: rgb(30, 255, 0);
         color: white;
-        // height: 90vh;
-        // padding: 50px;
-    
+        // width: 100vmax;
         .details-container {
-            padding: 0;
+            margin: 0;
+            padding: 0px;
+            
+
             
             .details-poster {
                 background-color: white;
@@ -130,35 +188,34 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 box-shadow: -0px 0 500px $pastelPink;
-                // height: 37vmax;
-                // min-width: 50vh;
+
             }
             
             .details-description {
                 // background-color: tomato;
-                // display: flex;
-                // flex-direction: column;
-                // padding: 20px;
-                min-width: 50vh;
+                margin: 0;
+                padding: 10px;
                 overflow: hidden;
-    
-                .title {
-                    background: linear-gradient(270deg, $dark 1%, white );
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    font-weight: bold;
-                    margin-left: 50px;
-                    width: 85%;
-                    
-                }
                 
                 .details-text {
                     // background-color: turquoise;
                 }
                 
+                .details-videos{
+                    display: none;
+                }
             }
         }
         
+
+        .details-actors {
+            padding: 0;
+        }
+
+
+        .fas.fa-chevron-down {
+            display: none;
+        }
         
     }
 }

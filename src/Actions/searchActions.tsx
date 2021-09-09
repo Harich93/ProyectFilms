@@ -1,8 +1,10 @@
-import { Movie } from '../Types/Models/models';
-import { Action } from '../Types/interface/interfaces';
-import { types } from '../Types/types';
-import { getSeachMovies } from '../Helpers/customsFetch';
+import { Movie } from '../types/Models/models';
+import { Action } from '../types/interface/interfaces';
+
+import { getSeachMovies } from '../helpers/customsFetch';
 import { setLoadingTrue, setLoadingFalse } from './loadActions';
+import { types } from '../types/types';
+
 
 export const startGetSearchMovies = ( query:string ) => {
     return async( dispatch:any ) => {

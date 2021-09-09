@@ -1,5 +1,6 @@
 
 .myNav {
+    // background-color: turquoise;
     display: flex;
     justify-content: flex-end;
     margin-right: 10px;
@@ -40,10 +41,8 @@
 @media (max-width: 618px ) {
 
     .myNav {
-        // display: flex;
-        justify-content: start;
         flex-wrap: wrap;
-        // margin-right: 5px;
+        justify-content: flex-start;
         list-style: none;
         
         transition: width .4s ease-in-out;

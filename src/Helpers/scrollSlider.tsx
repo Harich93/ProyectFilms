@@ -9,7 +9,6 @@ export const scrollSlider = ( id:string ) => {
     a.addEventListener('wheel', (e) => {
         body.className = 'stop-scrolling';
             e.preventDefault()
-            console.log('wheel')
             e.deltaY > 0
             ? (document.querySelector(`#slider-${id}`)!.scrollLeft -= 350 )
             : document.querySelector(`#slider-${id}`)!.scrollLeft += 350;
@@ -18,12 +17,12 @@ export const scrollSlider = ( id:string ) => {
         
         a.addEventListener('mouseleave', (e) => {
             e.preventDefault();
-            console.log('mouseleave')
             body.className = '';
         });
             
         scrollSliderTouch( id );
 }
+
 
 export const scrollSliderTouch = ( id:string ) => {
 
@@ -44,11 +43,12 @@ export const scrollSliderTouch = ( id:string ) => {
                 
         a.addEventListener('touchend', () => {
             body.className = '';
-            console.log('cancel touch')
         });
         
     });
 }
+
+
 
 
 

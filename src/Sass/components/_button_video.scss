@@ -1,0 +1,25 @@
+.btn-video {
+    border: none;
+    border-radius: 5px;
+    color: $green;
+    display: flex;
+    // flex-direction: column;
+    // text-align: center;
+    align-items: center;
+    background-color: transparent;
+    margin-right: 10px;
+    min-width: 100px;
+
+    .fab.fa-youtube {
+        text-align: center;
+        align-items: center;
+        font-size: x-large;
+        background: linear-gradient( 90deg, $pastelPink , $dark 110%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    // transition: all .4s ease-in-out;
+    &:hover {
+        color: $dark-light
+    }
+};

@@ -1,3 +1,5 @@
+@import 'node_modules/react-modal-video/scss/modal-video.scss';
+
 @import 'base/colors';
 @import 'base/global';
 @import 'components/home_page';
@@ -5,4 +7,10 @@
 @import 'components/slider';
 @import 'components/details_page';
 @import 'components/search';
+
 @import 'components/spinner';
+@import 'components/percentage_circle';
+@import 'components/button_video';
+@import 'components/modal';
+
+

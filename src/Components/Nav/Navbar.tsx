@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { deleteResults } from '../../Actions/searchActions';
-import { Seach } from '../Search/Seach'
+import { deleteResults } from '../../actions/searchActions';
+import { Seach } from '../search/Seach'
 
 export const Navbar = () => {
     const dispatch = useDispatch();

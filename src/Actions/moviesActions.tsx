@@ -1,8 +1,8 @@
-import { getCinemaFilms,  getPopularFilms, getUpcomingMovies } from '../Helpers/customsFetch';
-import { Action } from '../Types/interface/interfaces';
-import { Movie } from '../Types/Models/models';
+import { getCinemaFilms,  getPopularFilms, getUpcomingMovies } from '../helpers/customsFetch';
+import { Action } from '../types/interface/interfaces';
+import { Movie } from '../types/Models/models';
 
-import { types } from '../Types/types';
+import { types } from '../types/types';
 
 export const startGetCinemaMovies = ( firstFetch:boolean = false ) => {
     return async( dispatch:any ) => {

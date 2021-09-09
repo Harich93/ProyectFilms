@@ -1,9 +1,9 @@
 
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { setActiveMovie } from '../../Actions/activeActions';
-import { getPoster } from '../../Helpers/getPoster';
-import { Movie } from '../../Types/Models/models';
+import { setActiveMovie } from '../../actions/activeActions';
+import { getPoster } from '../../helpers/getPoster';
+import { Movie } from '../../types/Models/models';
 
 interface iSearchCard {
     movie:Movie

@@ -1,5 +1,5 @@
-import { Action } from '../Types/interface/interfaces';
-import { types } from '../Types/types';
+import { Action } from '../types/interface/interfaces';
+import { types } from '../types/types';
 
 
 export const setLoadingTrue = ():Action => ({

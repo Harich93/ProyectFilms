@@ -1,8 +1,9 @@
-import { getCreditsMovie, getDetailsMovies, getRecommendMovies, getSimilarMovies, getVideosMovies } from '../Helpers/customsFetch';
-import { Action, Video } from '../Types/interface/interfaces';
-import { types } from "../Types/types";
-import { Cast, Movie, DetailsModel } from '../Types/Models/models';
+import { getCreditsMovie, getDetailsMovies, getRecommendMovies, getSimilarMovies, getVideosMovies } from '../helpers/customsFetch';
+import { Action, Video } from '../types/interface/interfaces';
+import { types } from "../types/types";
+import { Cast, Movie, DetailsModel } from '../types/Models/models';
 import { setLoadingTrue, setLoadingFalse } from './loadActions';
+
 
 export const startGetCreditsMovieActive = ( id:number ) => {
     return async( dispatch:any ) => {
@@ -19,7 +20,7 @@ export const startGetCreditsMovieActive = ( id:number ) => {
     }
 };
 
-export const startGetSimilarActive = ( id:number, firstFetch?:boolean ) => {
+export const startGetSimilarActive = ( id:number, firstFetch:boolean = true ) => {
     return async(dispatch:any) => {
         try {
             
@@ -35,7 +36,7 @@ export const startGetSimilarActive = ( id:number, firstFetch?:boolean ) => {
     }
 }
 
-export const startGetRecommendActive = ( id:number, firstFetch?:boolean ) => {
+export const startGetRecommendActive = ( id:number, firstFetch:boolean = true ) => {
     return async(dispatch:any) => {
         try {
             

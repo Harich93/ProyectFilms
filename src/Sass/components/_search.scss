@@ -100,6 +100,7 @@
         box-shadow: 0 0 10px white;
         
         .search-card-description{
+            height: 100%;
             display: inline-block;
             border-radius: 20px;
             background-color: transparentize($color: $dark, $amount: 0.1);

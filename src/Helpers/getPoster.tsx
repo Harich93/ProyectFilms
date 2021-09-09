@@ -1,4 +1,4 @@
-import { Movie } from "../Types/Models/models";
+import { Movie } from "../types/Models/models";
 
 
 export const getPoster = ( posterPath:string ):string => {

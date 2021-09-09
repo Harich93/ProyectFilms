@@ -5,11 +5,11 @@ import {
     Switch,
     Redirect,
   } from "react-router-dom";
-import { Navbar } from "../Components/Nav/Navbar";
-import { DetailsPage } from "../Components/Pages/DetailsPage";
-import { HomePage } from "../Components/Pages/HomePage";
-import { LoginPage } from "../Components/Pages/LoginPage";
-import { SearchResults } from '../Components/Search/SearchResults';
+import { Navbar } from "../Components/nav/Navbar";
+import { DetailsPage } from "../Components/pages/DetailsPage";
+import { HomePage } from "../Components/pages/HomePage";
+import { LoginPage } from "../Components/pages/LoginPage";
+import { SearchResults } from '../Components/search/SearchResults';
 
 
 export const AppRouters = () => {

@@ -1,9 +1,11 @@
-import { Movie, MovieModel, Cast, CreditsModel, DetailsModel } from '../Types/Models/models';
-import { Video, VideosModel } from '../Types/interface/interfaces';
+import { Movie, MovieModel, Cast, CreditsModel, DetailsModel } from '../types/Models/models';
+import { Video, VideosModel } from '../types/interface/interfaces';
 
 let pageCinema    = 0;
 let pagePopular   = 0;
 let pageUpcoming  = 0;
+
+
 
 
 
@@ -121,5 +123,10 @@ export const getVideosMovies = async( id:number ):Promise<Video[]> => {
 
     return videos.results;
 }
+
+
+//==============
+// Peticiones TV
+//==============
 
 

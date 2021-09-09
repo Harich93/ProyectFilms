@@ -1,74 +1,52 @@
 
-import { ItemSliderMovie} from './ItemSliderMovie';
-import { useEffect } from 'react';
-import { scrollSlider } from '../../Helpers/scrollSlider';
-import { ItemSliderCast } from './ItemSliderCast';
+import { useEffect, ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
-import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../Actions/moviesActions';
+
+import { scrollSlider } from '../../helpers/scrollSlider';
+
 
 export interface iSlider {
     title        : string,
     itemCounter? : number,
     items?       : any[],
-    component    : 'movies' | 'cast',
-    functionDispatch?   : 'cinema' | 'popular' | 'upcoming'
+    componentStyle     : 'poster' | 'circle',
+    component          : ReactElement
+    funInfiniteScroll? : ( a?:any, b?:boolean) => Promise<void>
 }
 
 
-export const Slider = ( { title, itemCounter, items, component, functionDispatch }:iSlider ) => {
 
-    let funDis:Function;
-
-    functionDispatch === 'cinema' 
-        ? funDis = startGetCinemaMovies
-        : functionDispatch === 'popular'
-            ? funDis = startGetPopularMovies
-            : funDis = startGetUpcomingMovies 
+export const Slider = ( { title, items, component, componentStyle, funInfiniteScroll }:iSlider ) => {
 
     const dispatch = useDispatch()
 
     const titleId = title.replace(' ', '');
 
-    const scrollInfinite = ( {target}:any ) => {
+    const scrollInfinite = () => {
 
-        component !== 'cast' &&
-            target.scrollWidth - target.scrollLeft  <= ( 2000 ) 
-                && dispatch( funDis( false ) );
-    }
+        const a = document.querySelector(`#slider-${titleId}`) as HTMLElement;
     
+        a.scrollWidth - a.scrollLeft  <= ( 2000 ) 
+            && dispatch( funInfiniteScroll );
+    }
+
+    const initScrollControl = () => {
+        scrollSlider( titleId );
+        scrollInfinite();
+    }
     
     useEffect(() => {
         scrollSlider( titleId )
     }, [titleId])
-
-    const moduleMovies = () => (
-        items?.map( film => ( 
-            <ItemSliderMovie key={film.id} movie={ film }/> 
-        ))
-    );
-
-    const moduleCasts = () => (
-        items?.map( cast => ( 
-            <ItemSliderCast key={cast.id} cast={ cast }/> 
-        ))
-    );
-        
-    
     
     return (
-        <div className='animate__animated animate__fadeIn'>
+        <div className='animate__animated animate__fadeIn' onWheel={ initScrollControl  } onTouchMove={ initScrollControl }>
             <h2 className='slider-title'>{title}</h2>
 
-            <div id={`slider-${titleId}`} className='slider-frame' onWheel={ scrollInfinite  } onTouchMove={ scrollInfinite }
-                
-            > 
+            <div id={`slider-${titleId}`} className='slider-frame'> 
 
-                <div className={`slider-container ${ component === 'cast' ? 'cast' : 'movie' }`}>
-                    {
-                        component === 'movies' 
-                            ? moduleMovies()
-                            : moduleCasts()   
-                    }
+                <div className={`slider-container ${ componentStyle === 'circle' ? 'circle' : 'poster' }`} >
+                    { component }  
                 </div>
             </div>
         </div>
