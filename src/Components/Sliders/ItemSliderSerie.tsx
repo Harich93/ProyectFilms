@@ -1,10 +1,12 @@
+// import { useDispatch } from 'react-redux';
+import { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setActiveSerie } from '../../actions/activeSerieActions';
 
-import { Serie } from '../../types/Models/models';
 import { getPoster } from '../../helpers/getPoster';
 
-import { ReactElement } from 'react';
+import { Serie } from '../../types/Models/models';
 
 
 
@@ -16,10 +18,10 @@ export const ItemSliderSerie = ( { items }:iItemSliderSerie ):ReactElement => {
 
     const dispatch = useDispatch();
 
-    // const handleOnClick = ( serie:Serie ) => {
-
-    //     dispatch( setActiveSerie( serie ) );
-    // } 
+    const handleOnClick = ( serie:Serie ) => {
+        localStorage.setItem('activeSerie', JSON.stringify(serie) ); 
+        dispatch( setActiveSerie( serie ) );
+    } 
 
     return (
 
@@ -27,17 +29,17 @@ export const ItemSliderSerie = ( { items }:iItemSliderSerie ):ReactElement => {
             { 
                 items.map( serie => (
                     
-                    <Link key={serie.id} to='/details'>
+                    <Link key={serie.id} to='/details-serie'>
                         <div 
-                            className='slider-item' 
+                            className='card' 
                             style={{ backgroundImage: `url(${getPoster( serie.poster_path )})` }}
-                            // onClick={ () => handleOnClick(serie) }
+                            onClick={ () => handleOnClick(serie) }
                         >
                             <div className='col-4' >
 
                             </div>
-                            <div className='slider-item-description col-8 animate__animated animate__fadeIn'>
-                                <div className='slider-item-title'>
+                            <div className='card-description col-8 animate__animated animate__fadeIn'>
+                                <div className='card-title'>
                                     <h3>{ serie.name }</h3>
                                     <i className="far fa-star"> {serie.vote_average}</i>
                                 </div>

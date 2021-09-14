@@ -9,6 +9,7 @@ import { ItemSliderMovie } from '../sliders/ItemSliderMovie';
 import { MoviesRState } from '../../types/interface/interfaces';
 
 import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../actions/moviesActions';
+import { setFindMovie } from '../../actions/searchActions';
 
 
 export const HomePage = () => {
@@ -25,14 +26,24 @@ export const HomePage = () => {
       dispatch( startGetUpcomingMovies( true ) );
     }
 
+    dispatch( setFindMovie() );
+
 
   }, [movies, dispatch]);
 
     return (
       <>
+
+            <Slider
+              component={ <ItemSliderMovie movies={ movies.PopularFilms } /> }
+              title='Populares'
+              items={ movies.PopularFilms }
+              funInfiniteScroll={ startGetPopularMovies( false ) }
+            />
+
+
             <Slider
               component={ <ItemSliderMovie movies={ movies.UpcomingFilms } /> }
-              componentStyle='poster'
               title='Próximamente'
               items={ movies.UpcomingFilms }
               funInfiniteScroll={ startGetUpcomingMovies( false ) }
@@ -40,20 +51,13 @@ export const HomePage = () => {
 
             <Slider
               component={ <ItemSliderMovie movies={ movies.CinemaFilms } />}
-              componentStyle='poster'
-              title='En cines'
+              title='Actuales'
               items={ movies.CinemaFilms }
               funInfiniteScroll={ startGetCinemaMovies( false ) }
 
             />
   
-            <Slider
-              component={ <ItemSliderMovie movies={ movies.PopularFilms } /> }
-              componentStyle='poster'
-              title='Populares'
-              items={ movies.PopularFilms }
-              funInfiniteScroll={ startGetPopularMovies( false ) }
-            />
+
 
         </>
     )

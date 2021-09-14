@@ -1,7 +1,7 @@
-import { getCreditsMovie, getDetailsMovies, getRecommendMovies, getSimilarMovies, getVideosMovies } from '../helpers/customsFetch';
+import { getCreditsMovie, getDetailsMovies, getImgesActive, getRecommendMovies, getSimilarMovies, getVideosActive } from '../helpers/customsFetch';
 import { Action, Video } from '../types/interface/interfaces';
 import { types } from "../types/types";
-import { Cast, Movie, DetailsModel } from '../types/Models/models';
+import { Cast, Movie, DetailsModel, ImagesModel } from '../types/Models/models';
 import { setLoadingTrue, setLoadingFalse } from './loadActions';
 
 
@@ -69,13 +69,26 @@ export const startGetVideosActive = ( id:number ) => {
     return async( dispatch:any ) => {
         try {
             
-            const resp = await getVideosMovies( id );
+            const resp = await getVideosActive( id, 'movie' );
             dispatch( setVideosActive( resp ) );
+
+        } catch (error) {
+            console.warn(  error );
+        }
+    }
+}
+
+export const startGetImagesMovieActive = ( id:number ) => {
+    return async( dispatch:any ) => {
+        try {
+            
+            const resp = await getImgesActive( id, 'movie' );
+            dispatch( setImagesActive( resp ) );
 
             dispatch( setLoadingFalse() );
 
         } catch (error) {
-            
+            console.warn( error );
         }
     }
 }
@@ -119,4 +132,10 @@ const setVideosActive = ( payload:Video[] ):Action => ({
     type: types.activeSetVideos,
     payload
 });
+
+const setImagesActive = ( payload:ImagesModel ):Action => ({
+    type: types.activeSetImages,
+    payload
+});
+
 

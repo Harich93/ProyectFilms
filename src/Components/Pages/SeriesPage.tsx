@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startGetOnAirSeries, startGetPopularSeries, startGetTopSeries } from '../../actions/seriesActions';
-import { ItemSliderMovie } from '../sliders/ItemSliderMovie';
 import { Slider } from '../sliders/Slider';
 import { RootState } from '../../store/store';
 import { iSeriesRState } from '../../types/interface/interfaces';
 import { ItemSliderSerie } from '../sliders/ItemSliderSerie';
+import { setFindSerie } from '../../actions/searchActions';
 
 
 export const SeriesPage = () => {
@@ -20,10 +20,11 @@ export const SeriesPage = () => {
             dispatch( startGetOnAirSeries() );
             dispatch( startGetTopSeries() );
             dispatch( startGetPopularSeries() );
-
+            
         }
-    
-    }, [])
+        dispatch( setFindSerie() )
+        
+    }, [ SeriesOnAir, dispatch ])
 
 
     return (
@@ -31,14 +32,12 @@ export const SeriesPage = () => {
             <Slider 
                 component={ <ItemSliderSerie items={ SeriesTop } /> }
                 title='Top'
-                componentStyle='poster'
                 funInfiniteScroll={ startGetTopSeries( false ) }
             />
             
             <Slider 
                 component={ <ItemSliderSerie items={ SeriesOnAir } /> }
                 title='En emisión'
-                componentStyle='poster'
                 funInfiniteScroll={ startGetOnAirSeries( false ) }
             />
 
@@ -46,7 +45,6 @@ export const SeriesPage = () => {
             <Slider 
                 component={ <ItemSliderSerie items={ SeriesPopular } /> }
                 title='Populares'
-                componentStyle='poster'
                 funInfiniteScroll={ startGetPopularSeries( false ) }
             />
 

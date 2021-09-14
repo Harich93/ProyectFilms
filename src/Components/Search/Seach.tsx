@@ -1,29 +1,32 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { deleteResults, startGetSearchMovies } from "../../actions/searchActions";
+import { useDispatch } from 'react-redux';
+import { deleteResults, startGetSearch } from "../../actions/searchActions";
 import { useForm } from "../../hooks/useForm";
 
+interface iSearch  {
+    find: 'movie' | 'tv'
+}
 
-export const Seach = () => {
+export const Seach = (  { find }:iSearch ) => {
 
     const dispatch = useDispatch();
-
+    
     const [ values, handleInputChange, reset] = useForm({ query: '' });
     const { query } = values ;
-
+    
     const [view, setView] = useState(true);
-
+    
     useEffect(() => {
         if (query.length > 2) {
-                dispatch( startGetSearchMovies( query ));
-                setView( false );
+            dispatch( startGetSearch( query, find ));
+            setView( false );
         }
         else {
-                dispatch( deleteResults() );
+            dispatch( deleteResults() );
                 setView( true );
-        }
-    }, [ query, dispatch])
-
+            }
+        }, [ query, find, dispatch])
+        
 
 
     return (
@@ -36,7 +39,7 @@ export const Seach = () => {
             <input 
                 className='input-search ms-3 cursor animate__animated animate__fadeInRight'
                 type='text'
-                placeholder='Buscar...'
+                placeholder={`Buscar ${ find !== 'movie' ? 'serie' : 'pelicula' }...`}
                 name='query'
                 value={query}
                 onChange={ handleInputChange }
@@ -54,3 +57,4 @@ export const Seach = () => {
         </div>
     )
 }
+

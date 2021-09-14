@@ -1,8 +1,5 @@
 
-// ============
-// Movies Model
-// ============
-
+// Movies
 export interface MovieModel {
     page:          number;
     results:       Movie[];
@@ -13,7 +10,7 @@ export interface MovieModel {
 export interface CreditsModel {
     id:   number;
     cast: Cast[];
-    crew: Cast[];
+    crew: any[];
 }
 
 export interface Movie {
@@ -77,7 +74,7 @@ export interface Cast {
     job?:                 string;
 }
 
-interface Genre {
+export interface Genre {
     id:   number;
     name: string;
 }
@@ -109,11 +106,9 @@ interface SpokenLanguage {
 
 
 
-//===========
-// Tv Models
-//===========
+// Series
 
-export interface TvModel {
+export interface SeriesModel {
     page:          number;
     results:       Serie[];
     total_pages:   number;
@@ -122,7 +117,7 @@ export interface TvModel {
 
 export interface Serie {
     backdrop_path:     null | string;
-    first_air_date:    Date;
+    first_air_date:    string;
     genre_ids:         number[];
     id:                number;
     name:              string;
@@ -135,3 +130,144 @@ export interface Serie {
     vote_average:      number;
     vote_count:        number;
 }
+
+export interface DetailsSerieModel {
+    backdrop_path:        string;
+    created_by:           CreatedBy[];
+    episode_run_time:     number[];
+    first_air_date:       Date;
+    genres:               Genre[];
+    homepage:             string;
+    id:                   number;
+    in_production:        boolean;
+    languages:            string[];
+    last_air_date:        Date;
+    last_episode_to_air:  LastEpisodeToAir;
+    name:                 string;
+    next_episode_to_air:  null;
+    networks:             Network[];
+    number_of_episodes:   number;
+    number_of_seasons:    number;
+    origin_country:       string[];
+    original_language:    string;
+    original_name:        string;
+    overview:             string;
+    popularity:           number;
+    poster_path:          string;
+    production_companies: any[];
+    production_countries: any[];
+    seasons:              Season[];
+    spoken_languages:     SpokenLanguage[];
+    status:               string;
+    tagline:              string;
+    type:                 string;
+    vote_average:         number;
+    vote_count:           number;
+}
+
+export interface CreatedBy {
+    id:           number;
+    credit_id:    string;
+    name:         string;
+    profile_path: null;
+}
+
+export interface Genre {
+    id:   number;
+    name: string;
+}
+
+export interface LastEpisodeToAir {
+    air_date:        Date;
+    episode_number:  number;
+    id:              number;
+    name:            string;
+    overview:        string;
+    production_code: string;
+    season_number:   number;
+    still_path:      null;
+    vote_average:    number;
+    vote_count:      number;
+}
+
+export interface Network {
+    name:           string;
+    id:             number;
+    logo_path:      string;
+    origin_country: string;
+}
+
+export interface Season {
+    _id:           string;
+    air_date:      Date;
+    episodes?:     Episode[];
+    name:          string;
+    overview:      string;
+    id:            number;
+    poster_path:   string;
+    season_number: number;
+}
+
+export interface Episode {
+    air_date:        Date;
+    episode_number:  number;
+    crew:            Crew[];
+    guest_stars:     Crew[];
+    id:              number;
+    name:            string;
+    overview:        string;
+    production_code: string;
+    season_number:   number;
+    still_path:      null;
+    vote_average:    number;
+    vote_count:      number;
+}
+
+export interface Crew {
+    department?:          Department;
+    job?:                 Job;
+    credit_id:            string;
+    adult:                boolean;
+    gender:               number;
+    id:                   number;
+    known_for_department: Department;
+    name:                 string;
+    original_name:        string;
+    popularity:           number;
+    profile_path:         null | string;
+    character?:           string;
+    order?:               number;
+}
+
+export enum Department {
+    Acting = "Acting",
+    Directing = "Directing",
+    Editing = "Editing",
+    Writing = "Writing",
+}
+
+export enum Job {
+    Director = "Director",
+    Editor = "Editor",
+    Writer = "Writer",
+}
+
+// Images
+
+export interface ImagesModel {
+    backdrops: Backdrop[];
+    id:        number;
+    logos:     Backdrop[];
+    posters:   Backdrop[];
+}
+
+export interface Backdrop {
+    aspect_ratio: number;
+    height:       number;
+    iso_639_1:    null | string;
+    file_path:    string;
+    vote_average: number;
+    vote_count:   number;
+    width:        number;
+}
+

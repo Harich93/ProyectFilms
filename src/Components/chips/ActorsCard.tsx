@@ -5,11 +5,11 @@ import { getPoster } from '../../helpers/getPoster';
 
 
 
-export interface iItemSliderCast {
+export interface iActorsCards {
     casts : Cast[]
 };
 
-export const ItemSliderCast = ( { casts }:iItemSliderCast ) => {
+export const ActorsCard = ( { casts }:iActorsCards ) => {
 
     return (
 

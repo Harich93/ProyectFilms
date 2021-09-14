@@ -14,7 +14,8 @@ export const SearchResults = () => {
     return (
 
         <>
-            {   Loading ? <Snniper />
+            {   Loading || Results === undefined
+                        ? <Snniper />
                         :
                             <div className='search-res-frame animate__animated animate__fadeIn'>
                                 <h1 className='search-res-title animate__animated animate__fadeIn'>

@@ -1,4 +1,4 @@
-import { Cast, DetailsModel, Movie, Serie } from "../Models/models";
+import { Cast, DetailsModel, DetailsSerieModel, ImagesModel, Movie, Season, Serie } from "../Models/models";
 
 
 
@@ -19,17 +19,10 @@ export interface ActiveRState {
     ActiveSimilar        : Movie[]
     ActiveRecommend      : Movie[]
     ActiveDetails?       : DetailsModel
-    ActiveVideos?        : Video[] 
+    ActiveVideos?        : Video[]
+    ActiveImages?        : ImagesModel
 }
 
-export interface iActiveSerieRState {
-    ActiveSerie?              : Serie
-    ActiveSeerieCast          : Cast[]
-    ActiveSerieSimilar        : Movie[]
-    ActiveSerieRecommend      : Movie[]
-    ActiveSerieDetailsSerie?  : DetailsModel
-    ActiveSerieVideos?        : Video[] 
-}
 
 export interface ModalRState {
     ModalOpen  : boolean
@@ -42,6 +35,7 @@ export interface iLoadRState {
 
 export interface iSearchRState {
     Results : Movie[]
+    Find    : 'movie' | 'tv'
 }
 
 export interface VideosModel {
@@ -68,3 +62,13 @@ export interface iSeriesRState {
     SeriesTop       : Serie[]
 }
 
+export interface iActiveSerieRState {
+    ActiveSerie?              : Serie
+    ActiveSerieCast           : Cast[]
+    ActiveSerieSimilar        : Serie[]
+    ActiveSerieRecommend      : Serie[]
+    ActiveSerieDetails?       : DetailsSerieModel
+    ActiveSerieVideos?        : Video[]
+    ActiveSerieImages?        : ImagesModel
+    ActiveSeasons?            : Season[]
+}

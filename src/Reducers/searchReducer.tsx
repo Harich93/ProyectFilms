@@ -2,8 +2,9 @@ import { Action, iSearchRState } from '../types/interface/interfaces';
 import { types } from "../types/types";
 
 
-const initialState: iSearchRState = {
-    Results: []
+export const initialState: iSearchRState = {
+    Results : [],
+    Find    : 'movie'
 }
 
 export const searchReducer = ( state = initialState, action:Action ) => {
@@ -19,6 +20,18 @@ export const searchReducer = ( state = initialState, action:Action ) => {
             return{
                 ...state,
                 Results: []
+            }
+
+        case types.searchSetFindMovie:
+            return{
+                ...state,
+                Find: 'movie'
+            }
+
+        case types.searchSetFindSerie:
+            return{
+                ...state,
+                Find: 'tv'
             }
     
         default: return state;

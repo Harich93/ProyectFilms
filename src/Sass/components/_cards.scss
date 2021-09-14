@@ -1,0 +1,93 @@
+.card { 
+    display: block;
+    background-color: $dark;
+    background-size: cover;
+    background-repeat:no-repeat;
+    border-radius: 20px;
+    float: left;
+    height: 28vh;
+    margin-right: 20px;
+    width: 19vh;
+    box-shadow: 2px 2px 5px $dark;
+
+    overflow: hidden;
+    
+    transition: width .6s ease-out;
+    transition-delay: 0.5s;
+
+    &.circle {
+        background-position: center;
+        border-radius: 90px;
+        height: 15vh;
+        width: 15vh;
+    }
+
+    .card-title {
+
+        .far {
+            font-size: 13px;
+            color: $blue-light;
+        }
+    }
+
+
+    .card-description {
+        color: white;
+        display: none;
+        font-family:  Calibri, sans-serif;
+        font-size: 12px;
+        padding: 15px;
+        overflow: hidden;
+        
+        h3{
+            color: $blue-light;
+        }
+    }
+    
+    &:hover {
+        background-position: left;
+        background-size: contain;
+        box-shadow: 3px 3px 6px $dark-light;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+
+        width: 65vh;
+        z-index: 1;
+        
+        
+        &.circle {
+
+            border-radius: 90px;
+            width: 50vh;
+            
+            .card-description {
+                padding: 10px;
+            }
+
+            ul {
+                margin-top: 20px;
+                font-size: 12px;
+            }
+            
+            span {
+                color: lighten($color: $dark-light, $amount: 20);
+                margin-right: 10px;
+            }
+        }
+        
+        .card-description {
+            display: block;
+            
+        }
+
+
+    }
+}
+@media (max-width: 600px ) {
+
+    .card-description {
+        display: none;
+    }
+ 
+}

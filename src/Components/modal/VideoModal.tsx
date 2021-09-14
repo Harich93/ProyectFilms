@@ -18,8 +18,6 @@ export const VideoModal = () => {
         dispatch( modalSetOpenFalse() );
     }
 
-    console.log( ModalVideo )
-
     return (
         <div>
             <Modal
@@ -51,7 +49,7 @@ export const VideoModal = () => {
             >
                 <div className='modal-row'> 
                     <iframe 
-                        width="1060" height="615" 
+                        // width="1060" height="615" 
                         src={ ModalVideo }
                         title="YouTube video player" 
                         frameBorder="0" 

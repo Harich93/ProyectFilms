@@ -59,6 +59,12 @@ export const activeReducer = ( state = initialState, action:Action) => {
                 ActiveVideos: action.payload
             }
 
+        case types.activeSetImages:
+            return {
+                ...state,
+                ActiveImages: action.payload
+            }
+
         
         default: return state;
     }

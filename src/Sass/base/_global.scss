@@ -35,14 +35,16 @@ html,body {
 
 }
 
+
+
 .animate__fadeInDown {
     --animate-duration: 3s;
 }
 .animate__fadeInRight, .animate__fadeInLeft {
     --animate-duration: 1.5s;
 }
-.details-frame.animate__fadeIn {
-    --animate-duration: 9s;
+.details-frame.animate__animated.animate__fadeIn {
+    --animate-duration: 5s;
 }
 .animate__animated.animate__fadeIn {
     --animate-duration: 9s

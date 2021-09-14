@@ -6,17 +6,16 @@ import { scrollSlider } from '../../helpers/scrollSlider';
 
 
 export interface iSlider {
-    title        : string,
-    itemCounter? : number,
-    items?       : any[],
-    componentStyle     : 'poster' | 'circle',
+    title              : string,
+    itemCounter?       : number,
+    items?             : any[],
     component          : ReactElement
     funInfiniteScroll? : ( a?:any, b?:boolean) => Promise<void>
 }
 
 
 
-export const Slider = ( { title, items, component, componentStyle, funInfiniteScroll }:iSlider ) => {
+export const Slider = ( { title, items, component, funInfiniteScroll }:iSlider ) => {
 
     const dispatch = useDispatch()
 
@@ -26,7 +25,7 @@ export const Slider = ( { title, items, component, componentStyle, funInfiniteSc
 
         const a = document.querySelector(`#slider-${titleId}`) as HTMLElement;
     
-        a.scrollWidth - a.scrollLeft  <= ( 2000 ) 
+        a.scrollWidth - a.scrollLeft  <= ( 2000 ) && funInfiniteScroll !== undefined 
             && dispatch( funInfiniteScroll );
     }
 
@@ -47,8 +46,8 @@ export const Slider = ( { title, items, component, componentStyle, funInfiniteSc
             <div id={`slider-${titleId}`} className='slider-frame'> 
 
 
-                <div className={`slider-container ${ componentStyle === 'circle' ? 'circle' : 'poster' }`} >
-                    { component }  
+                <div className='slider-container' >
+                    { component }
                 </div>
             </div>
         </div>

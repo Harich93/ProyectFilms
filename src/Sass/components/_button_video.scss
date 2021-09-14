@@ -1,25 +1,26 @@
 .btn-video {
-    background-color: yellowgreen;
+    background-color: transparent;
     border: none;
-    border-radius: 5px;
     color: white;
     display: flex;
-    margin-bottom: 5%;
-    background-color: transparent;
+    justify-content: center;
+    width: 100px;
+
+    transition: color .3s ease-in;
+
     
     .fab.fa-youtube {
-        text-align: center;
-        align-items: center;
         font-size: x-large;
-        background: linear-gradient( 90deg, $pastelPink , $dark 110%);
-        -webkit-background-clip: text;
-        // -webkit-text-fill-color: transparent;
-        transition: color .5s ease-in-out;
+
+        transition: color .3s ease-in;
     }
     &:hover {
+        color: darken($color: white, $amount: 50);
+
         .fab.fa-youtube{
             color: $red
         }
+
     }
     // transition: all .4s ease-in-out;
 };

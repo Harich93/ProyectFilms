@@ -1,0 +1,60 @@
+.nav-season-frame {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+    width: 100%;
+
+    // background-color: turquoise;
+
+    ul {
+        // background-color: violet;
+    }
+}
+
+.nav-link {
+    color: white;
+
+    &:hover {
+        color: $pink
+    }
+}
+
+.season-poster {
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    img {
+        border-radius: 20px;
+        max-height: 300px;
+    }
+
+    blockquote {
+        padding: 50px;
+        max-width: 50%;
+    }
+}
+
+.tab-content {
+    // background-color: darkgoldenrod;
+
+    width: 100%;
+
+    .tab-pane {
+        
+        text-align: center;
+        align-items: center;
+        // background-color: darkgray;
+        width: 100%;
+
+    }
+
+
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: $pink-dark;
+}

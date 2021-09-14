@@ -7,6 +7,7 @@ import {
   } from "react-router-dom";
 import { Navbar } from "../Components/nav/Navbar";
 import { DetailsPage } from "../Components/pages/DetailsPage";
+import { DetailsSeriePage } from "../Components/pages/DetailsSeriePage";
 import { HomePage } from "../Components/pages/HomePage";
 import { LoginPage } from "../Components/pages/LoginPage";
 import { SeriesPage } from "../Components/pages/SeriesPage";
@@ -23,6 +24,7 @@ export const AppRouters = () => {
                 <Route exact path='/series' component={ SeriesPage } />
                 <Route exact path='/search' component={ SearchResults } />
                 <Route exact path='/details' component={ DetailsPage } />
+                <Route exact path='/details-serie' component={ DetailsSeriePage } />
                 <Route exact path='/auth/login' component={ LoginPage } />
 
                 <Redirect to='/films' />

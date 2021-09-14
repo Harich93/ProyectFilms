@@ -24,15 +24,18 @@ export const types = {
     activeAddRecommend  : '[active] Add recommendations active',
     activeSetDetails    : '[active] Set details active',
     activeSetVideos     : '[active] Set videos active',
+    activeSetImages     : '[active] Set images active',
 
-    activeSetCastSerie       : '[active] Set serie cast active',
-    activeSetSerie           : '[active] Set serie active',
-    activeSetSimilarSerie    : '[active] Set serie similar active',
-    activeAddSimilarSerie    : '[active] Add serie similar active',
-    activeSetRecommendSerie  : '[active] Set serie recommendations active',
-    activeAddRecommendSerie  : '[active] Add serie recommendations active',
-    activeSetDetailsSerie    : '[active] Set serie details active',
-    activeSetVideosSerie     : '[active] Set serie videos active',
+    activeSetCastSerie       : '[activeSerie] Set serie cast active',
+    activeSetSerie           : '[activeSerie] Set serie active',
+    activeSetSimilarSerie    : '[activeSerie] Set serie similar active',
+    activeAddSimilarSerie    : '[activeSerie] Add serie similar active',
+    activeSetRecommendSerie  : '[activeSerie] Set serie recommendations active',
+    activeAddRecommendSerie  : '[activeSerie] Add serie recommendations active',
+    activeSetDetailsSerie    : '[activeSerie] Set serie details active',
+    activeSetVideosSerie     : '[activeSerie] Set serie videos active',
+    activeSetImagesSerie     : '[activeSerie] Set serie images active',
+    activeSetSeasonSerie     : '[activeSerie] Set serie season active',
 
 
     loadSetTrue         : '[load] Set load true',
@@ -40,6 +43,9 @@ export const types = {
 
     searchSetResults    : '[search] Set results',
     searchDeleteResults : '[search] Delete results',
+    searchSetFindMovie  : '[search] Set find movie',
+    searchSetFindSerie  : '[search] Set find serie',
+
 
     modalSetOpenTrue    : '[modal] Set open true',
     modalSetOpenfalse   : '[modal] Set open false',

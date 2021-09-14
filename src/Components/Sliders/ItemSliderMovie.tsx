@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { Movie, Serie } from '../../types/Models/models';
+import { Movie } from '../../types/Models/models';
 import { getPoster } from '../../helpers/getPoster';
 import { setActiveMovie } from '../../actions/activeActions';
 import { ReactElement } from 'react';
@@ -18,6 +18,7 @@ export const ItemSliderMovie = ( { movies }:iItemSliderMovie ):ReactElement => {
 
     const handleOnClick = ( movie:Movie) => {
 
+        localStorage.setItem('activeMovie', JSON.stringify(movie))
         dispatch( setActiveMovie( movie ) );
     } 
 
@@ -29,15 +30,15 @@ export const ItemSliderMovie = ( { movies }:iItemSliderMovie ):ReactElement => {
                     
                     <Link key={movie.id} to='/details'>
                         <div 
-                            className='slider-item' 
+                            className='card' 
                             style={{ backgroundImage: `url(${getPoster( movie.poster_path )})` }}
                             onClick={ () => handleOnClick(movie) }
                         >
                             <div className='col-4' >
 
                             </div>
-                            <div className='slider-item-description col-8 animate__animated animate__fadeIn'>
-                                <div className='slider-item-title'>
+                            <div className='card-description col-8 animate__animated animate__fadeIn'>
+                                <div className='card-title'>
                                     <h3>{ movie.title }</h3>
                                     <i className="far fa-star"> {movie.vote_average}</i>
                                 </div>

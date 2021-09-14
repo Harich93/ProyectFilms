@@ -4,7 +4,7 @@
 // Search nav
 //=============
 .search-frame {
-
+    
     .fas.fa-search {
         &:hover {
             color: $blue-light;
@@ -116,10 +116,11 @@
         -webkit-text-fill-color: transparent;
         font-weight: bold;
         margin-left: 50px;
-        width: 80vw;
+        width: 100vw;
     }
 
     .search-res-container {
+        justify-content: center;
         padding: 0;
 
     }

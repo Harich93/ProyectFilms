@@ -22,19 +22,19 @@
     .nav-link {
         color: white;
         font-size: 15px;
-    
+        
         &:hover {
-            color: $blue-light;
+            color: $pastelViolet;
             &.search {
                 color: white;
             }
         }
-    
-        &:active {
-            color: $blue;
-        }
-
-
+        
+        
+        
+    }
+    a:active {
+        color: $pastelViolet;
     }
 }
 

@@ -1,17 +1,77 @@
 import { Action, iActiveSerieRState } from "../types/interface/interfaces";
+import { types } from '../types/types';
 
  const initialState:iActiveSerieRState = {
-    ActiveSeerieCast : [],
-    ActiveSerieRecommend: [],
-    ActiveSerieSimilar : [],  
+    ActiveSerieCast      : [],
+    ActiveSerieRecommend : [],
+    ActiveSerieSimilar   : [],
+    ActiveSerieVideos    : [],
  }
  
- export const nameReducer = ( state = initialState, action:Action ) => {
-    switch ( action.type) {
-        // case value:
-            
-        //     break;
-    
-        default: return state
-    }
+ export const activeSerieReducer = ( state = initialState, action:Action ) => {
+   
+   switch (action.type) {
+      case types.activeSetCastSerie:
+         return {
+              ...state,
+              ActiveSerieCast: action.payload
+         }
+
+      case types.activeSetSerie:
+          return {
+              ...state,
+              ActiveSerie: action.payload
+          }
+      
+      case types.activeSetSimilarSerie:
+          return{
+              ...state,
+              ActiveSerieSimilar: action.payload
+          }
+
+      case types.activeAddSimilarSerie:
+          return {
+              ...state,
+              ActiveSerieSimilar: [ ...state.ActiveSerieSimilar, ...action.payload ]
+          }
+
+      case types.activeSetRecommendSerie:
+          return{
+              ...state,
+              ActiveSerieRecommend: action.payload
+          }
+
+      case types.activeAddRecommendSerie:
+          return {
+              ...state,
+              ActiveSerieRecommend: [ ...state.ActiveSerieRecommend, ...action.payload ]
+          }
+
+      case types.activeSetDetailsSerie:
+          return {
+              ...state,
+              ActiveSerieDetails: action.payload
+          }
+
+      case types.activeSetVideosSerie:
+          return {
+              ...state,
+              ActiveSerieVideos: action.payload
+          }
+
+      case types.activeSetImagesSerie:
+          return {
+              ...state,
+              ActiveSerieImages: action.payload
+          }
+
+      case types.activeSetSeasonSerie:
+          return {
+              ...state,
+              ActiveSeason: action.payload
+          }
+
+      
+      default: return state;
+  }
  }
