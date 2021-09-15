@@ -71,6 +71,12 @@ import { types } from '../types/types';
               ActiveSeason: action.payload
           }
 
+      case types.activeSetWatchProvidersSerie:
+          return {
+              ...state,
+              ActiveWPSerie: action.payload
+          } 
+
       
       default: return state;
   }

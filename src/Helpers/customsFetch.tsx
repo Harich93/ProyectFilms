@@ -1,4 +1,4 @@
-import { Movie, MovieModel, Cast, CreditsModel, DetailsModel, SeriesModel, Serie, DetailsSerieModel, Season } from '../types/Models/models';
+import { Movie, MovieModel, Cast, CreditsModel, DetailsModel, SeriesModel, Serie, DetailsSerieModel, Season, WatchProviders } from '../types/Models/models';
 import { Video, VideosModel } from '../types/interface/interfaces';
 
 let pageCinema    = 0;
@@ -9,9 +9,9 @@ let pageOnAir    = 0;
 let pagePopularSerie   = 0;
 
 
-//=============================
-// Petición imagenes y videos 
-//=============================
+//=====================================
+// Petición imagenes, videos, streaming 
+//=====================================
 
 export const getImgesActive= async( id:number, endpoint: 'movie' | 'tv'  ):Promise<any> => {
 
@@ -27,6 +27,15 @@ export const getVideosActive = async( id:number, endpoint: 'movie' | 'tv' ):Prom
     const videos = await data;
 
     return videos.results;
+}
+
+
+export const getWatchProvider = async( id:number, endpoint: 'movie' | 'tv' ) => {
+
+    const data:WatchProviders = await customFetch( `/3/${endpoint}/${id}/watch/providers`);
+    const wp = await data.results.ES;
+
+    return wp;
 }
 
 //======================

@@ -13,6 +13,7 @@ import { VideoModal } from '../modal/VideoModal';
 import { ItemSliderSerie } from '../sliders/ItemSliderSerie';
 import { ItemSliderCast } from '../sliders/ItemSliderCast';
 import { NavSeason } from '../nav/NavSeason';
+import { WatchProviders } from '../watchProviders/WatchProviders';
 
 export const DetailsSeriePage = () => {
     
@@ -62,7 +63,6 @@ export const DetailsSeriePage = () => {
 
     return (
         <>  
-        {console.log( serie!.id )}
             {
                 Loading || serie === undefined || images === undefined
                 ? <Snniper />
@@ -104,6 +104,11 @@ export const DetailsSeriePage = () => {
                                             </div>
 
                                             <hr />
+
+                                            {
+                                                details?.tagline !== "" &&
+                                                    <i className='tagline'>"{ details?.tagline }</i>
+                                            }
                                            
                                             <blockquote>{serie?.overview}</blockquote>
                                            
@@ -139,10 +144,16 @@ export const DetailsSeriePage = () => {
                             
                             </div>
 
+
                             <div className='details-seasons'>
                                 <NavSeason seasons={ details!.seasons}  />
+                                <WatchProviders />
                             </div>
 
+                            <div>
+                                <h3>Ver en streaming</h3>
+
+                            </div>
 
                                 <div className='details-actors'>
                                     

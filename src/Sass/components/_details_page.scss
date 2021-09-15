@@ -176,10 +176,11 @@
 }
 
 .details-seasons {
-    margin-top: 25vh;
     background: radial-gradient(circle, $pastelViolet 0%, $dark 100%);
     box-shadow: inset 0 0 300px $dark;
     display: flex;
+    flex-direction: column;
+    margin-top: 25vh;
     padding: 20px;
     justify-content: center;
     width: 100%;

@@ -1,7 +1,7 @@
-import {  getCreditsSeries, getDetailsMovies, getDetailsSeries, getImgesActive, getRecommendMovies, getRecommendSeries, getSimilarMovies, getSimilarSeries, getVideosActive } from '../helpers/customsFetch';
+import { getCreditsSeries, getDetailsMovies, getDetailsSeries, getImgesActive, getRecommendMovies, getRecommendSeries, getSimilarMovies, getSimilarSeries, getVideosActive, getWatchProvider } from '../helpers/customsFetch';
 import { Action, Video } from '../types/interface/interfaces';
 import { types } from "../types/types";
-import { Cast, Serie, DetailsModel, ImagesModel, DetailsSerieModel, Season } from '../types/Models/models';
+import { Cast, Serie, DetailsModel, ImagesModel, DetailsSerieModel, Season, Ar } from '../types/Models/models';
 import { setLoadingTrue, setLoadingFalse } from './loadActions';
 
 
@@ -94,6 +94,21 @@ export const startGetImagesSerieActive = ( id:number ) => {
     }
 }
 
+export const startGetWPSeries = ( id:number ) => {
+    return async( dispatch:any ) => {
+        try {
+            
+            const resp = await getWatchProvider( id, 'tv' );
+            dispatch( setWPSerie( resp ) );
+
+            dispatch( setLoadingFalse() );
+
+        } catch (error) {
+            console.warn( error );
+        }
+    }
+}
+
 export const setActiveSerie = ( payload:Serie ):Action => ({
     type: types.activeSetSerie,
     payload
@@ -141,5 +156,10 @@ const setVideosSerie = ( payload:Video[] ):Action => ({
 
 const setImagesSerie = ( payload:ImagesModel ):Action => ({
     type: types.activeSetImagesSerie,
+    payload
+});
+
+const setWPSerie = ( payload:Ar ):Action => ({
+    type: types.activeSetWatchProvidersSerie,
     payload
 });

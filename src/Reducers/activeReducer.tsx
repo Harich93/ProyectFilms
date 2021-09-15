@@ -65,6 +65,12 @@ export const activeReducer = ( state = initialState, action:Action) => {
                 ActiveImages: action.payload
             }
 
+        case types.activeSetWatchProviders:
+            return {
+                ...state,
+                ActiveWP: action.payload
+            }
+
         
         default: return state;
     }

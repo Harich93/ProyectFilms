@@ -1,0 +1,30 @@
+.platforms-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+
+    ul{
+        display: flex;
+        list-style: none;
+        justify-content: flex-end;
+        padding: 0;
+        width: 100%;
+        li{
+
+            padding: 10px;
+
+            img{
+                cursor: pointer;
+                border-radius: 5px;
+                height: 30px;
+                width: 30px;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+    }
+}

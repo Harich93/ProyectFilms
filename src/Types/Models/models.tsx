@@ -200,6 +200,7 @@ export interface Network {
 export interface Season {
     _id:           string;
     air_date:      Date;
+    episode_count: number;
     episodes?:     Episode[];
     name:          string;
     overview:      string;
@@ -269,5 +270,83 @@ export interface Backdrop {
     vote_average: number;
     vote_count:   number;
     width:        number;
+}
+
+// Watch providers
+
+export interface WatchProviders {
+    id:      number;
+    results: Platforms
+;
+}
+
+export interface Platforms {
+    AR: Ar;
+    AT: At;
+    AU: At;
+    BE: Ar;
+    BG: Ar;
+    BR: At;
+    CA: At;
+    CH: Ar;
+    CL: Ar;
+    CO: Ar;
+    CZ: Ar;
+    DE: At;
+    DK: At;
+    EC: Ar;
+    EE: Ar;
+    ES: Ar;
+    FI: At;
+    FR: At;
+    GB: At;
+    GR: Ar;
+    HU: Ar;
+    ID: Ar;
+    IE: At;
+    IN: Ar;
+    IT: Ar;
+    JP: At;
+    KR: Ar;
+    LT: Ar;
+    LV: Ar;
+    MX: At;
+    MY: Ar;
+    NL: Ar;
+    NO: At;
+    NZ: At;
+    PE: Ar;
+    PL: At;
+    PT: Ar;
+    RO: Ar;
+    RU: Ar;
+    SE: At;
+    SG: Ar;
+    TH: Ar;
+    TR: Ar;
+    US: At;
+    VE: Ar;
+    ZA: Ar;
+}
+
+export interface Ar {
+    link:     string;
+    flatrate: Flatrate[];
+}
+
+export interface Flatrate {
+    display_priority: number;
+    logo_path:        string;
+    provider_id:      number;
+    provider_name:    string;
+}
+
+export interface At {
+    link:     string;
+    flatrate: Flatrate[];
+    buy?:     Flatrate[];
+    free?:    Flatrate[];
+    rent?:    Flatrate[];
+    ads?:     Flatrate[];
 }
 

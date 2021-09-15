@@ -1,4 +1,4 @@
-import { Cast, DetailsModel, DetailsSerieModel, ImagesModel, Movie, Season, Serie } from "../Models/models";
+import { Cast, DetailsModel, DetailsSerieModel, ImagesModel, Movie, Season, Serie, WatchProviders, Ar } from '../Models/models';
 
 
 
@@ -21,6 +21,8 @@ export interface ActiveRState {
     ActiveDetails?       : DetailsModel
     ActiveVideos?        : Video[]
     ActiveImages?        : ImagesModel
+    ActiveWP?            : WatchProviders
+
 }
 
 
@@ -71,4 +73,5 @@ export interface iActiveSerieRState {
     ActiveSerieVideos?        : Video[]
     ActiveSerieImages?        : ImagesModel
     ActiveSeasons?            : Season[]
+    ActiveWPSerie?            : Ar
 }

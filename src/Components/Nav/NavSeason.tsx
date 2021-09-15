@@ -41,9 +41,25 @@ export const NavSeason = ( { seasons }:iSeason) => {
                             aria-labelledby={`pills-${ind}-tab`}
                         >
 
-                            <div className='season-poster'>
-                                <img src={ getPoster( season.poster_path ) } />
-                                <blockquote>{season.overview}</blockquote>
+                            <div className='season-desc'>
+                                <div className='col-xl-3'> 
+                                    <img src={ getPoster( season.poster_path ) } />
+                                </div>
+
+                                <div className='col-xl-3'> 
+                                    <blockquote>
+                                        {season.overview}
+                                    </blockquote>
+
+                                </div>
+
+                                <div className='col-xl-2'> 
+                                    <ul>
+                                        <li>Fecha emisión: {season.air_date}</li>
+                                        <li>Episodios: { season.episode_count }</li>
+                                    </ul>
+
+                                </div>
                             </div>
 
                         </div>
