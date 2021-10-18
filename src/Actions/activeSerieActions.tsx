@@ -1,8 +1,17 @@
-import { getCreditsSeries, getDetailsMovies, getDetailsSeries, getImgesActive, getRecommendMovies, getRecommendSeries, getSimilarMovies, getSimilarSeries, getVideosActive, getWatchProvider } from '../helpers/customsFetch';
-import { Action, Video } from '../types/interface/interfaces';
-import { types } from "../types/types";
-import { Cast, Serie, DetailsModel, ImagesModel, DetailsSerieModel, Season, Ar } from '../types/Models/models';
-import { setLoadingTrue, setLoadingFalse } from './loadActions';
+import { 
+    getCreditsSeries, 
+    getDetailsSeries, 
+    getImgesActive,  
+    getRecommendSeries,  
+    getSimilarSeries, 
+    getVideosActive, 
+    getWatchProvider 
+    } from '../Helpers/customsFetch';
+    
+import { types } from "../Types/types";
+import { Action, Video } from '../Types/interface/interfaces';
+import { Cast, Serie, ImagesModel, DetailsSerieModel, Season, Ar } from '../Types/Models/models';
+import { setLoadingTrue, setLoadingFalse } from '../Actions/loadActions';
 
 
 export const startGetCreditsSerieActive = ( id:number ) => {

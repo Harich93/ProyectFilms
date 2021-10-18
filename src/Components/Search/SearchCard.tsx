@@ -1,12 +1,12 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
-import {  setActiveMovie } from '../../actions/activeActions';
-import { getPoster } from '../../helpers/getPoster';
-import {  Movie, Serie } from '../../types/Models/models';
-import { RootState } from '../../store/store';
-import { iSearchRState } from '../../types/interface/interfaces';
-import { setActiveSerie } from '../../actions/activeSerieActions';
+import {  setActiveMovie } from '../../Actions/activeActions';
+import { getPoster } from '../../Helpers/getPoster';
+import {  Movie, Serie } from '../../Types/Models/models';
+import { RootState } from '../../Store/store';
+import { iSearchRState } from '../../Types/interface/interfaces';
+import { setActiveSerie } from '../../Actions/activeSerieActions';
 
 interface iSearchCard {
     movie? : Movie

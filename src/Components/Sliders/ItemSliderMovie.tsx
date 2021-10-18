@@ -1,10 +1,10 @@
+import { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { Movie } from '../../types/Models/models';
-import { getPoster } from '../../helpers/getPoster';
-import { setActiveMovie } from '../../actions/activeActions';
-import { ReactElement } from 'react';
+import { Movie } from '../../Types/Models/models';
+import { getPoster } from '../../Helpers/getPoster';
+import { setActiveMovie } from '../../Actions/activeActions';
 
 
 

@@ -1,9 +1,10 @@
-import { Movie, Serie } from '../types/Models/models';
-import { Action, iSearchRState } from '../types/interface/interfaces';
+import { Movie, Serie } from '../Types/Models/models';
+import { Action, iSearchRState } from '../Types/interface/interfaces';
 
-import { getSeachMovies, getSeachSeries } from '../helpers/customsFetch';
-import { setLoadingTrue, setLoadingFalse } from './loadActions';
-import { types } from '../types/types';
+import { getSeachMovies, getSeachSeries } from '../Helpers/customsFetch';
+import { setLoadingTrue, setLoadingFalse } from '../Actions/loadActions';
+import { types } from '../Types/types';
+
 
 
 export const startGetSearch = ( query:string, find: 'movie' | 'tv' ) => {

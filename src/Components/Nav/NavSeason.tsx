@@ -1,6 +1,6 @@
 import bootstrap from "bootstrap"
-import { Season } from "../../types/Models/models"
-import { getPoster } from '../../helpers/getPoster';
+import { Season } from "../../Types/Models/models"
+import { getPoster } from '../../Helpers/getPoster';
 
 interface iSeason{
     seasons:Season[]

@@ -1,5 +1,5 @@
-import { Action, MoviesRState } from '../types/interface/interfaces';
-import {types } from '../types/types';
+import { Action, MoviesRState } from '../Types/interface/interfaces';
+import {types } from '../Types/types';
 
 const initialState:MoviesRState = {
     CinemaFilms   : [],

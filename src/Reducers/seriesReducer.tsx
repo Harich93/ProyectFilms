@@ -1,5 +1,5 @@
-import { Action, iSeriesRState } from "../types/interface/interfaces"
-import { types } from '../types/types';
+import { Action, iSeriesRState } from "../Types/interface/interfaces"
+import { types } from '../Types/types';
 
 const initialState:iSeriesRState = {
     SeriesOnAir     : [],

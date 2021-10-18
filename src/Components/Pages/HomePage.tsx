@@ -1,15 +1,16 @@
 import '../../Sass/style.scss';
 
 import { useEffect } from 'react';
-import { RootState } from '../../store/store';
+import { RootState } from '../../Store/store';
 import {  useDispatch, useSelector } from 'react-redux';
 
-import { Slider } from '../sliders/Slider';
-import { ItemSliderMovie } from '../sliders/ItemSliderMovie';
-import { MoviesRState } from '../../types/interface/interfaces';
+import { Slider } from '../Sliders/Slider';
+import { ItemSliderMovie } from '../Sliders/ItemSliderMovie';
+import { MoviesRState } from '../../Types/interface/interfaces';
 
-import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../actions/moviesActions';
-import { setFindMovie } from '../../actions/searchActions';
+import { startGetCinemaMovies, startGetPopularMovies, startGetUpcomingMovies } from '../../Actions/moviesActions';
+import { setFindMovie } from '../../Actions/searchActions';
+
 
 
 export const HomePage = () => {

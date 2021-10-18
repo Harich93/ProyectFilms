@@ -2,7 +2,7 @@
 import { useEffect, ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { scrollSlider } from '../../helpers/scrollSlider';
+import { scrollSlider } from '../../Helpers/scrollSlider';
 
 
 export interface iSlider {

@@ -1,6 +1,6 @@
-export { seriesReducer } from './seriesReducer';
-export { modalReducer } from './modalReducer';
-export { moviesReducer } from './moviesRecuder';
-export { loadReducer } from './loadReducer';
-export { searchReducer } from './searchReducer';
-export { activeReducer } from './activeReducer';
+export { seriesReducer } from '../Reducers/seriesReducer';
+export { modalReducer } from '../Reducers/modalReducer';
+export { moviesReducer } from '../Reducers/moviesRecuder';
+export { loadReducer } from '../Reducers/loadReducer';
+export { searchReducer } from '../Reducers/searchReducer';
+export { activeReducer } from '../Reducers/activeReducer';

@@ -1,5 +1,5 @@
-import { Action, ModalRState } from "../types/interface/interfaces"
-import { types } from "../types/types";
+import { Action, ModalRState } from "../Types/interface/interfaces"
+import { types } from "../Types/types";
 
 const initialState:ModalRState = {
     ModalOpen  : false,

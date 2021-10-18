@@ -1,5 +1,5 @@
-import { Action } from '../types/interface/interfaces';
-import { types } from '../types/types';
+import { Action } from '../Types/interface/interfaces';
+import { types } from '../Types/types';
 
 export const modalSetOpenTrue = ():Action => ({
     type: types.modalSetOpenTrue

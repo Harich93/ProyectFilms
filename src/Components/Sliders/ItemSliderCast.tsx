@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import { Cast } from '../../types/Models/models';
-import { getPoster } from '../../helpers/getPoster';
+import { Cast } from '../../Types/Models/models';
+import { getPoster } from '../../Helpers/getPoster';
 
 
 

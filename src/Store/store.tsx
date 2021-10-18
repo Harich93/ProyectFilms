@@ -1,8 +1,8 @@
 import { applyMiddleware, combineReducers, compose, createStore  } from "redux";
 import thunk from "redux-thunk";
 
-import { activeReducer, loadReducer, moviesReducer, searchReducer, modalReducer, seriesReducer } from "../reducers/reducers";
-import { activeSerieReducer } from '../reducers/activeSerieReducer';
+import { activeReducer, loadReducer, moviesReducer, searchReducer, modalReducer, seriesReducer } from "../Reducers/reducers";
+import { activeSerieReducer } from '../Reducers/activeSerieReducer';
 
 const reducers = combineReducers({
     'moviesR'      : moviesReducer,

@@ -1,5 +1,5 @@
-import { Action, iSearchRState } from '../types/interface/interfaces';
-import { types } from "../types/types";
+import { Action, iSearchRState } from '../Types/interface/interfaces';
+import { types } from "../Types/types";
 
 
 export const initialState: iSearchRState = {

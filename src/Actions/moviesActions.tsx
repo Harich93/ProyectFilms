@@ -1,8 +1,7 @@
-import { getCinemaFilms,  getPopularFilms, getUpcomingMovies } from '../helpers/customsFetch';
-import { Action } from '../types/interface/interfaces';
-import { Movie } from '../types/Models/models';
-
-import { types } from '../types/types';
+import { getCinemaFilms,  getPopularFilms, getUpcomingMovies } from '../Helpers/customsFetch';
+import { Action } from '../Types/interface/interfaces';
+import { Movie } from '../Types/Models/models';
+import { types } from '../Types/types';
 
 
 

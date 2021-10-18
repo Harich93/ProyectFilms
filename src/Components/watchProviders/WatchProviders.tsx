@@ -1,9 +1,9 @@
-import { getPoster } from '../../helpers/getPoster';
+import { getPoster } from '../../Helpers/getPoster';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { iActiveSerieRState } from '../../types/interface/interfaces';
+import { RootState } from '../../Store/store';
+import { iActiveSerieRState } from '../../Types/interface/interfaces';
 import { useEffect } from 'react';
-import { startGetWPSeries } from '../../actions/activeSerieActions';
+import { startGetWPSeries } from '../../Actions/activeSerieActions';
 
 interface iNamePlatforms{
     
@@ -23,8 +23,8 @@ export const WatchProviders = () => {
         <>
             {
                 wp !==undefined &&
-                    <div className='platforms-container'>
-                        {/* <h3>Ver en streaming</h3> */}
+                    <div className='platforms-container text-end'>
+                        <h4>Ver en streaming</h4>
                         <ul>
                             { wp.flatrate.map( platform => (
                                 <li><a href={`${wp.link}`}> <img src={`${getPoster( platform.logo_path )}`} /> </a></li>

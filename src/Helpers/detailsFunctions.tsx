@@ -1,5 +1,5 @@
-import { Backdrop, Genre } from '../types/Models/models';
-import { getPoster } from './getPoster';
+import { Backdrop, Genre } from '../Types/Models/models';
+import { getPoster } from '../Helpers/getPoster';
 
 export const titleHidden = ( className:string, classNameAdd:string ) => {
 

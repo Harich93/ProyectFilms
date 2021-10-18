@@ -1,5 +1,5 @@
-import { Action, iLoadRState } from '../types/interface/interfaces';
-import { types } from '../types/types';
+import { Action, iLoadRState } from '../Types/interface/interfaces';
+import { types } from '../Types/types';
 
 const initialState:iLoadRState = {
     Loading : false 

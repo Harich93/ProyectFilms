@@ -1,5 +1,5 @@
-import { Action, ActiveRState } from '../types/interface/interfaces';
-import { types } from '../types/types';
+import { Action, ActiveRState } from '../Types/interface/interfaces';
+import { types } from '../Types/types';
 
 const initialState:ActiveRState = {
     ActiveCast      : [],

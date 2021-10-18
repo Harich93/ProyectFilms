@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startGetOnAirSeries, startGetPopularSeries, startGetTopSeries } from '../../actions/seriesActions';
-import { Slider } from '../sliders/Slider';
-import { RootState } from '../../store/store';
-import { iSeriesRState } from '../../types/interface/interfaces';
-import { ItemSliderSerie } from '../sliders/ItemSliderSerie';
-import { setFindSerie } from '../../actions/searchActions';
+import { startGetOnAirSeries, startGetPopularSeries, startGetTopSeries } from '../../Actions/seriesActions';
+import { Slider } from '../Sliders/Slider';
+import { RootState } from '../../Store/store';
+import { iSeriesRState } from '../../Types/interface/interfaces';
+import { ItemSliderSerie } from '../Sliders/ItemSliderSerie';
+import { setFindSerie } from '../../Actions/searchActions';
 
 
 export const SeriesPage = () => {

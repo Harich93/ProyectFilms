@@ -1,7 +1,7 @@
-import { getOnAirTv, getTop, getPopular } from '../helpers/customsFetch';
-import { Serie } from "../types/Models/models";
-import { Action } from '../types/interface/interfaces';
-import { types } from '../types/types';
+import { getOnAirTv, getTop, getPopular } from '../Helpers/customsFetch';
+import { Serie } from "../Types/Models/models";
+import { Action } from '../Types/interface/interfaces';
+import { types } from '../Types/types';
 
 
 export const startGetOnAirSeries = ( firstFetch:boolean = false ) => {

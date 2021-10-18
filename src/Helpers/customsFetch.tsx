@@ -1,5 +1,5 @@
-import { Movie, MovieModel, Cast, CreditsModel, DetailsModel, SeriesModel, Serie, DetailsSerieModel, Season, WatchProviders } from '../types/Models/models';
-import { Video, VideosModel } from '../types/interface/interfaces';
+import { Movie, MovieModel, Cast, CreditsModel, DetailsModel, SeriesModel, Serie, DetailsSerieModel, Season, WatchProviders } from '../Types/Models/models';
+import { Video, VideosModel } from '../Types/interface/interfaces';
 
 let pageCinema    = 0;
 let pagePopular   = 0;

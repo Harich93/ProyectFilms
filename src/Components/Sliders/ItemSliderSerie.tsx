@@ -2,11 +2,11 @@
 import { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setActiveSerie } from '../../actions/activeSerieActions';
+import { setActiveSerie } from '../../Actions/activeSerieActions';
 
-import { getPoster } from '../../helpers/getPoster';
+import { getPoster } from '../../Helpers/getPoster';
 
-import { Serie } from '../../types/Models/models';
+import { Serie } from '../../Types/Models/models';
 
 
 

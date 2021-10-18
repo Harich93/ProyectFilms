@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { getVideo } from '../../helpers/getVideo'
-import { modalSetVideo, modalSetOpenTrue } from '../../actions/modalActions';
+import { getVideo } from '../../Helpers/getVideo'
+import { modalSetVideo, modalSetOpenTrue } from '../../Actions/modalActions';
 
 export const ButtonVideo = ( {video}:any ) => {
 

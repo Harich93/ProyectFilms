@@ -2,9 +2,9 @@
 
 import Modal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store/store';
-import { ModalRState } from '../../types/interface/interfaces';
-import { modalSetOpenFalse } from '../../actions/modalActions';
+import { RootState } from '../../Store/store';
+import { ModalRState } from '../../Types/interface/interfaces';
+import { modalSetOpenFalse } from '../../Actions/modalActions';
 // import { CSSProperties } from 'react';
 
 

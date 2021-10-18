@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { iActiveSerieRState, iLoadRState } from '../../types/interface/interfaces';
-import { setActiveSerie, startGetCreditsSerieActive, startGetDetailsSerieActive, startGetImagesSerieActive, startGetRecommendSerieActive, startGetSimilarSerieActive, startGetVideosSerieActive } from '../../actions/activeSerieActions';
-import { Serie } from '../../types/Models/models';
-import { getGenres, titleHidden, titleLogo } from '../../helpers/detailsFunctions';
-import { Snniper } from '../snniper/Snniper';
-import { getPoster } from '../../helpers/getPoster';
+import { RootState } from '../../Store/store';
+import { iActiveSerieRState, iLoadRState } from '../../Types/interface/interfaces';
+import { setActiveSerie, startGetCreditsSerieActive, startGetDetailsSerieActive, startGetImagesSerieActive, startGetRecommendSerieActive, startGetSimilarSerieActive, startGetVideosSerieActive } from '../../Actions/activeSerieActions';
+import { Serie } from '../../Types/Models/models';
+import { getGenres, titleHidden, titleLogo } from '../../Helpers/detailsFunctions';
+import { Snniper } from '../Snniper/Snniper';
+import { getPoster } from '../../Helpers/getPoster';
 import { ButtonVideo } from '../videoButton/ButtonVideo';
-import { Slider } from '../sliders/Slider';
+import { Slider } from '../Sliders/Slider';
 import { VideoModal } from '../modal/VideoModal';
-import { ItemSliderSerie } from '../sliders/ItemSliderSerie';
-import { ItemSliderCast } from '../sliders/ItemSliderCast';
-import { NavSeason } from '../nav/NavSeason';
+import { ItemSliderSerie } from '../Sliders/ItemSliderSerie';
+import { ItemSliderCast } from '../Sliders/ItemSliderCast';
+import { NavSeason } from '../Nav/NavSeason';
 import { WatchProviders } from '../watchProviders/WatchProviders';
 
 export const DetailsSeriePage = () => {
@@ -146,15 +146,10 @@ export const DetailsSeriePage = () => {
 
 
                             <div className='details-seasons'>
-                                <NavSeason seasons={ details!.seasons}  />
+                                { details && <NavSeason seasons={ details!.seasons || [] }  /> }
                                 <WatchProviders />
                             </div>
-
-                            <div>
-                                <h3>Ver en streaming</h3>
-
-                            </div>
-
+                            
                                 <div className='details-actors'>
                                     
                                         {cast.length > 0 &&

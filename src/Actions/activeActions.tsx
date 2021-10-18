@@ -1,8 +1,8 @@
-import { getCreditsMovie, getDetailsMovies, getImgesActive, getRecommendMovies, getSimilarMovies, getVideosActive } from '../helpers/customsFetch';
-import { Action, Video } from '../types/interface/interfaces';
-import { types } from "../types/types";
-import { Cast, Movie, DetailsModel, ImagesModel } from '../types/Models/models';
-import { setLoadingTrue, setLoadingFalse } from './loadActions';
+import { getCreditsMovie, getDetailsMovies, getImgesActive, getRecommendMovies, getSimilarMovies, getVideosActive } from '../Helpers/customsFetch';
+import { Action, Video } from '../Types/interface/interfaces';
+import { types } from "../Types/types";
+import { Cast, Movie, DetailsModel, ImagesModel } from '../Types/Models/models';
+import { setLoadingTrue, setLoadingFalse } from '../Actions/loadActions';
 
 
 export const startGetCreditsMovieActive = ( id:number ) => {

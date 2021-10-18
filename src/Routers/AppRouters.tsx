@@ -5,13 +5,14 @@ import {
     Switch,
     Redirect,
   } from "react-router-dom";
-import { Navbar } from "../Components/nav/Navbar";
-import { DetailsPage } from "../Components/pages/DetailsPage";
-import { DetailsSeriePage } from "../Components/pages/DetailsSeriePage";
-import { HomePage } from "../Components/pages/HomePage";
-import { LoginPage } from "../Components/pages/LoginPage";
-import { SeriesPage } from "../Components/pages/SeriesPage";
-import { SearchResults } from '../Components/search/SearchResults';
+
+import { Navbar } from "../Components/Nav/Navbar";
+import { DetailsPage } from "../Components/Pages/DetailsPage";
+import { DetailsSeriePage } from "../Components/Pages/DetailsSeriePage";
+import { HomePage } from '../Components/Pages/HomePage';
+import { LoginPage } from "../Components/Pages/LoginPage";
+import { SeriesPage } from "../Components/Pages/SeriesPage";
+import { SearchResults } from "../Components/Search/SearchResults";
 
 
 export const AppRouters = () => {

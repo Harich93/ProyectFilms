@@ -1,5 +1,5 @@
-import { Action, iActiveSerieRState } from "../types/interface/interfaces";
-import { types } from '../types/types';
+import { Action, iActiveSerieRState } from "../Types/interface/interfaces";
+import { types } from '../Types/types';
 
  const initialState:iActiveSerieRState = {
     ActiveSerieCast      : [],

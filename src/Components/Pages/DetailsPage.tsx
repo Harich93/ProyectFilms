@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { RootState } from '../../store/store';
+import { RootState } from '../../Store/store';
 
-import { ActiveRState, iLoadRState } from '../../types/interface/interfaces';
+import { ActiveRState, iLoadRState } from '../../Types/interface/interfaces';
 import { 
     startGetCreditsMovieActive, 
     startGetSimilarActive, 
@@ -12,19 +12,19 @@ import {
     setActiveMovie, 
     startGetImagesMovieActive 
 
-    } from '../../actions/activeActions';
+    } from '../../Actions/activeActions';
 
-import { Snniper } from "../snniper/Snniper";
+import { Snniper } from "../Snniper/Snniper";
 
-import { getPoster } from "../../helpers/getPoster";
+import { getPoster } from "../../Helpers/getPoster";
 
-import { Slider } from "../sliders/Slider";
-import { ItemSliderMovie } from "../sliders/ItemSliderMovie";
-import { ItemSliderCast } from '../sliders/ItemSliderCast';
+import { Slider } from "../Sliders/Slider";
+import { ItemSliderMovie } from "../Sliders/ItemSliderMovie";
+import { ItemSliderCast } from '../Sliders/ItemSliderCast';
 import { ButtonVideo } from "../videoButton/ButtonVideo";
 import { VideoModal } from "../modal/VideoModal";
-import { Movie } from '../../types/Models/models';
-import { getDuration, getGenres, titleHidden, titleLogo } from "../../helpers/detailsFunctions";
+import { Movie } from '../../Types/Models/models';
+import { getDuration, getGenres, titleHidden, titleLogo } from "../../Helpers/detailsFunctions";
 
 
 
